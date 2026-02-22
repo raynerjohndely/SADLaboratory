@@ -1,277 +1,2028 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" class="h-full" dir="ltr" data-nav-layout="horizontal" data-nav-style="menu-click"
+    data-menu-position="fixed">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Valex- Tailwind Admin Template </title>
+    <meta name="description"
+        content="A Tailwind CSS admin template is a pre-designed web page for an admin dashboard. Optimizing it for SEO includes using meta descriptions and ensuring it's responsive and fast-loading.">
+    <meta name="keywords"
+        content="dashboard,admin dashboard,template dashboard,html,html dashboard,admin dashboard template,admin template,tailwind ui,admin panel,html and css,html admin template,tailwind framework,html css javascript,tailwind css dashboard,dashboard html css,admin,template admin panel,dashboard html template">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('backend/assets/images/brand-logos/favicon.ico') }}" type="image/x-icon">
 
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <style>
-                /*! tailwindcss v4.0.7 | MIT License | https://tailwindcss.com */@layer theme{:root,:host{--font-sans:'Instrument Sans',ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-serif:ui-serif,Georgia,Cambria,"Times New Roman",Times,serif;--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--color-red-50:oklch(.971 .013 17.38);--color-red-100:oklch(.936 .032 17.717);--color-red-200:oklch(.885 .062 18.334);--color-red-300:oklch(.808 .114 19.571);--color-red-400:oklch(.704 .191 22.216);--color-red-500:oklch(.637 .237 25.331);--color-red-600:oklch(.577 .245 27.325);--color-red-700:oklch(.505 .213 27.518);--color-red-800:oklch(.444 .177 26.899);--color-red-900:oklch(.396 .141 25.723);--color-red-950:oklch(.258 .092 26.042);--color-orange-50:oklch(.98 .016 73.684);--color-orange-100:oklch(.954 .038 75.164);--color-orange-200:oklch(.901 .076 70.697);--color-orange-300:oklch(.837 .128 66.29);--color-orange-400:oklch(.75 .183 55.934);--color-orange-500:oklch(.705 .213 47.604);--color-orange-600:oklch(.646 .222 41.116);--color-orange-700:oklch(.553 .195 38.402);--color-orange-800:oklch(.47 .157 37.304);--color-orange-900:oklch(.408 .123 38.172);--color-orange-950:oklch(.266 .079 36.259);--color-amber-50:oklch(.987 .022 95.277);--color-amber-100:oklch(.962 .059 95.617);--color-amber-200:oklch(.924 .12 95.746);--color-amber-300:oklch(.879 .169 91.605);--color-amber-400:oklch(.828 .189 84.429);--color-amber-500:oklch(.769 .188 70.08);--color-amber-600:oklch(.666 .179 58.318);--color-amber-700:oklch(.555 .163 48.998);--color-amber-800:oklch(.473 .137 46.201);--color-amber-900:oklch(.414 .112 45.904);--color-amber-950:oklch(.279 .077 45.635);--color-yellow-50:oklch(.987 .026 102.212);--color-yellow-100:oklch(.973 .071 103.193);--color-yellow-200:oklch(.945 .129 101.54);--color-yellow-300:oklch(.905 .182 98.111);--color-yellow-400:oklch(.852 .199 91.936);--color-yellow-500:oklch(.795 .184 86.047);--color-yellow-600:oklch(.681 .162 75.834);--color-yellow-700:oklch(.554 .135 66.442);--color-yellow-800:oklch(.476 .114 61.907);--color-yellow-900:oklch(.421 .095 57.708);--color-yellow-950:oklch(.286 .066 53.813);--color-lime-50:oklch(.986 .031 120.757);--color-lime-100:oklch(.967 .067 122.328);--color-lime-200:oklch(.938 .127 124.321);--color-lime-300:oklch(.897 .196 126.665);--color-lime-400:oklch(.841 .238 128.85);--color-lime-500:oklch(.768 .233 130.85);--color-lime-600:oklch(.648 .2 131.684);--color-lime-700:oklch(.532 .157 131.589);--color-lime-800:oklch(.453 .124 130.933);--color-lime-900:oklch(.405 .101 131.063);--color-lime-950:oklch(.274 .072 132.109);--color-green-50:oklch(.982 .018 155.826);--color-green-100:oklch(.962 .044 156.743);--color-green-200:oklch(.925 .084 155.995);--color-green-300:oklch(.871 .15 154.449);--color-green-400:oklch(.792 .209 151.711);--color-green-500:oklch(.723 .219 149.579);--color-green-600:oklch(.627 .194 149.214);--color-green-700:oklch(.527 .154 150.069);--color-green-800:oklch(.448 .119 151.328);--color-green-900:oklch(.393 .095 152.535);--color-green-950:oklch(.266 .065 152.934);--color-emerald-50:oklch(.979 .021 166.113);--color-emerald-100:oklch(.95 .052 163.051);--color-emerald-200:oklch(.905 .093 164.15);--color-emerald-300:oklch(.845 .143 164.978);--color-emerald-400:oklch(.765 .177 163.223);--color-emerald-500:oklch(.696 .17 162.48);--color-emerald-600:oklch(.596 .145 163.225);--color-emerald-700:oklch(.508 .118 165.612);--color-emerald-800:oklch(.432 .095 166.913);--color-emerald-900:oklch(.378 .077 168.94);--color-emerald-950:oklch(.262 .051 172.552);--color-teal-50:oklch(.984 .014 180.72);--color-teal-100:oklch(.953 .051 180.801);--color-teal-200:oklch(.91 .096 180.426);--color-teal-300:oklch(.855 .138 181.071);--color-teal-400:oklch(.777 .152 181.912);--color-teal-500:oklch(.704 .14 182.503);--color-teal-600:oklch(.6 .118 184.704);--color-teal-700:oklch(.511 .096 186.391);--color-teal-800:oklch(.437 .078 188.216);--color-teal-900:oklch(.386 .063 188.416);--color-teal-950:oklch(.277 .046 192.524);--color-cyan-50:oklch(.984 .019 200.873);--color-cyan-100:oklch(.956 .045 203.388);--color-cyan-200:oklch(.917 .08 205.041);--color-cyan-300:oklch(.865 .127 207.078);--color-cyan-400:oklch(.789 .154 211.53);--color-cyan-500:oklch(.715 .143 215.221);--color-cyan-600:oklch(.609 .126 221.723);--color-cyan-700:oklch(.52 .105 223.128);--color-cyan-800:oklch(.45 .085 224.283);--color-cyan-900:oklch(.398 .07 227.392);--color-cyan-950:oklch(.302 .056 229.695);--color-sky-50:oklch(.977 .013 236.62);--color-sky-100:oklch(.951 .026 236.824);--color-sky-200:oklch(.901 .058 230.902);--color-sky-300:oklch(.828 .111 230.318);--color-sky-400:oklch(.746 .16 232.661);--color-sky-500:oklch(.685 .169 237.323);--color-sky-600:oklch(.588 .158 241.966);--color-sky-700:oklch(.5 .134 242.749);--color-sky-800:oklch(.443 .11 240.79);--color-sky-900:oklch(.391 .09 240.876);--color-sky-950:oklch(.293 .066 243.157);--color-blue-50:oklch(.97 .014 254.604);--color-blue-100:oklch(.932 .032 255.585);--color-blue-200:oklch(.882 .059 254.128);--color-blue-300:oklch(.809 .105 251.813);--color-blue-400:oklch(.707 .165 254.624);--color-blue-500:oklch(.623 .214 259.815);--color-blue-600:oklch(.546 .245 262.881);--color-blue-700:oklch(.488 .243 264.376);--color-blue-800:oklch(.424 .199 265.638);--color-blue-900:oklch(.379 .146 265.522);--color-blue-950:oklch(.282 .091 267.935);--color-indigo-50:oklch(.962 .018 272.314);--color-indigo-100:oklch(.93 .034 272.788);--color-indigo-200:oklch(.87 .065 274.039);--color-indigo-300:oklch(.785 .115 274.713);--color-indigo-400:oklch(.673 .182 276.935);--color-indigo-500:oklch(.585 .233 277.117);--color-indigo-600:oklch(.511 .262 276.966);--color-indigo-700:oklch(.457 .24 277.023);--color-indigo-800:oklch(.398 .195 277.366);--color-indigo-900:oklch(.359 .144 278.697);--color-indigo-950:oklch(.257 .09 281.288);--color-violet-50:oklch(.969 .016 293.756);--color-violet-100:oklch(.943 .029 294.588);--color-violet-200:oklch(.894 .057 293.283);--color-violet-300:oklch(.811 .111 293.571);--color-violet-400:oklch(.702 .183 293.541);--color-violet-500:oklch(.606 .25 292.717);--color-violet-600:oklch(.541 .281 293.009);--color-violet-700:oklch(.491 .27 292.581);--color-violet-800:oklch(.432 .232 292.759);--color-violet-900:oklch(.38 .189 293.745);--color-violet-950:oklch(.283 .141 291.089);--color-purple-50:oklch(.977 .014 308.299);--color-purple-100:oklch(.946 .033 307.174);--color-purple-200:oklch(.902 .063 306.703);--color-purple-300:oklch(.827 .119 306.383);--color-purple-400:oklch(.714 .203 305.504);--color-purple-500:oklch(.627 .265 303.9);--color-purple-600:oklch(.558 .288 302.321);--color-purple-700:oklch(.496 .265 301.924);--color-purple-800:oklch(.438 .218 303.724);--color-purple-900:oklch(.381 .176 304.987);--color-purple-950:oklch(.291 .149 302.717);--color-fuchsia-50:oklch(.977 .017 320.058);--color-fuchsia-100:oklch(.952 .037 318.852);--color-fuchsia-200:oklch(.903 .076 319.62);--color-fuchsia-300:oklch(.833 .145 321.434);--color-fuchsia-400:oklch(.74 .238 322.16);--color-fuchsia-500:oklch(.667 .295 322.15);--color-fuchsia-600:oklch(.591 .293 322.896);--color-fuchsia-700:oklch(.518 .253 323.949);--color-fuchsia-800:oklch(.452 .211 324.591);--color-fuchsia-900:oklch(.401 .17 325.612);--color-fuchsia-950:oklch(.293 .136 325.661);--color-pink-50:oklch(.971 .014 343.198);--color-pink-100:oklch(.948 .028 342.258);--color-pink-200:oklch(.899 .061 343.231);--color-pink-300:oklch(.823 .12 346.018);--color-pink-400:oklch(.718 .202 349.761);--color-pink-500:oklch(.656 .241 354.308);--color-pink-600:oklch(.592 .249 .584);--color-pink-700:oklch(.525 .223 3.958);--color-pink-800:oklch(.459 .187 3.815);--color-pink-900:oklch(.408 .153 2.432);--color-pink-950:oklch(.284 .109 3.907);--color-rose-50:oklch(.969 .015 12.422);--color-rose-100:oklch(.941 .03 12.58);--color-rose-200:oklch(.892 .058 10.001);--color-rose-300:oklch(.81 .117 11.638);--color-rose-400:oklch(.712 .194 13.428);--color-rose-500:oklch(.645 .246 16.439);--color-rose-600:oklch(.586 .253 17.585);--color-rose-700:oklch(.514 .222 16.935);--color-rose-800:oklch(.455 .188 13.697);--color-rose-900:oklch(.41 .159 10.272);--color-rose-950:oklch(.271 .105 12.094);--color-slate-50:oklch(.984 .003 247.858);--color-slate-100:oklch(.968 .007 247.896);--color-slate-200:oklch(.929 .013 255.508);--color-slate-300:oklch(.869 .022 252.894);--color-slate-400:oklch(.704 .04 256.788);--color-slate-500:oklch(.554 .046 257.417);--color-slate-600:oklch(.446 .043 257.281);--color-slate-700:oklch(.372 .044 257.287);--color-slate-800:oklch(.279 .041 260.031);--color-slate-900:oklch(.208 .042 265.755);--color-slate-950:oklch(.129 .042 264.695);--color-gray-50:oklch(.985 .002 247.839);--color-gray-100:oklch(.967 .003 264.542);--color-gray-200:oklch(.928 .006 264.531);--color-gray-300:oklch(.872 .01 258.338);--color-gray-400:oklch(.707 .022 261.325);--color-gray-500:oklch(.551 .027 264.364);--color-gray-600:oklch(.446 .03 256.802);--color-gray-700:oklch(.373 .034 259.733);--color-gray-800:oklch(.278 .033 256.848);--color-gray-900:oklch(.21 .034 264.665);--color-gray-950:oklch(.13 .028 261.692);--color-zinc-50:oklch(.985 0 0);--color-zinc-100:oklch(.967 .001 286.375);--color-zinc-200:oklch(.92 .004 286.32);--color-zinc-300:oklch(.871 .006 286.286);--color-zinc-400:oklch(.705 .015 286.067);--color-zinc-500:oklch(.552 .016 285.938);--color-zinc-600:oklch(.442 .017 285.786);--color-zinc-700:oklch(.37 .013 285.805);--color-zinc-800:oklch(.274 .006 286.033);--color-zinc-900:oklch(.21 .006 285.885);--color-zinc-950:oklch(.141 .005 285.823);--color-neutral-50:oklch(.985 0 0);--color-neutral-100:oklch(.97 0 0);--color-neutral-200:oklch(.922 0 0);--color-neutral-300:oklch(.87 0 0);--color-neutral-400:oklch(.708 0 0);--color-neutral-500:oklch(.556 0 0);--color-neutral-600:oklch(.439 0 0);--color-neutral-700:oklch(.371 0 0);--color-neutral-800:oklch(.269 0 0);--color-neutral-900:oklch(.205 0 0);--color-neutral-950:oklch(.145 0 0);--color-stone-50:oklch(.985 .001 106.423);--color-stone-100:oklch(.97 .001 106.424);--color-stone-200:oklch(.923 .003 48.717);--color-stone-300:oklch(.869 .005 56.366);--color-stone-400:oklch(.709 .01 56.259);--color-stone-500:oklch(.553 .013 58.071);--color-stone-600:oklch(.444 .011 73.639);--color-stone-700:oklch(.374 .01 67.558);--color-stone-800:oklch(.268 .007 34.298);--color-stone-900:oklch(.216 .006 56.043);--color-stone-950:oklch(.147 .004 49.25);--color-black:#000;--color-white:#fff;--spacing:.25rem;--breakpoint-sm:40rem;--breakpoint-md:48rem;--breakpoint-lg:64rem;--breakpoint-xl:80rem;--breakpoint-2xl:96rem;--container-3xs:16rem;--container-2xs:18rem;--container-xs:20rem;--container-sm:24rem;--container-md:28rem;--container-lg:32rem;--container-xl:36rem;--container-2xl:42rem;--container-3xl:48rem;--container-4xl:56rem;--container-5xl:64rem;--container-6xl:72rem;--container-7xl:80rem;--text-xs:.75rem;--text-xs--line-height:calc(1/.75);--text-sm:.875rem;--text-sm--line-height:calc(1.25/.875);--text-base:1rem;--text-base--line-height: 1.5 ;--text-lg:1.125rem;--text-lg--line-height:calc(1.75/1.125);--text-xl:1.25rem;--text-xl--line-height:calc(1.75/1.25);--text-2xl:1.5rem;--text-2xl--line-height:calc(2/1.5);--text-3xl:1.875rem;--text-3xl--line-height: 1.2 ;--text-4xl:2.25rem;--text-4xl--line-height:calc(2.5/2.25);--text-5xl:3rem;--text-5xl--line-height:1;--text-6xl:3.75rem;--text-6xl--line-height:1;--text-7xl:4.5rem;--text-7xl--line-height:1;--text-8xl:6rem;--text-8xl--line-height:1;--text-9xl:8rem;--text-9xl--line-height:1;--font-weight-thin:100;--font-weight-extralight:200;--font-weight-light:300;--font-weight-normal:400;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--font-weight-extrabold:800;--font-weight-black:900;--tracking-tighter:-.05em;--tracking-tight:-.025em;--tracking-normal:0em;--tracking-wide:.025em;--tracking-wider:.05em;--tracking-widest:.1em;--leading-tight:1.25;--leading-snug:1.375;--leading-normal:1.5;--leading-relaxed:1.625;--leading-loose:2;--radius-xs:.125rem;--radius-sm:.25rem;--radius-md:.375rem;--radius-lg:.5rem;--radius-xl:.75rem;--radius-2xl:1rem;--radius-3xl:1.5rem;--radius-4xl:2rem;--shadow-2xs:0 1px #0000000d;--shadow-xs:0 1px 2px 0 #0000000d;--shadow-sm:0 1px 3px 0 #0000001a,0 1px 2px -1px #0000001a;--shadow-md:0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;--shadow-lg:0 10px 15px -3px #0000001a,0 4px 6px -4px #0000001a;--shadow-xl:0 20px 25px -5px #0000001a,0 8px 10px -6px #0000001a;--shadow-2xl:0 25px 50px -12px #00000040;--inset-shadow-2xs:inset 0 1px #0000000d;--inset-shadow-xs:inset 0 1px 1px #0000000d;--inset-shadow-sm:inset 0 2px 4px #0000000d;--drop-shadow-xs:0 1px 1px #0000000d;--drop-shadow-sm:0 1px 2px #00000026;--drop-shadow-md:0 3px 3px #0000001f;--drop-shadow-lg:0 4px 4px #00000026;--drop-shadow-xl:0 9px 7px #0000001a;--drop-shadow-2xl:0 25px 25px #00000026;--ease-in:cubic-bezier(.4,0,1,1);--ease-out:cubic-bezier(0,0,.2,1);--ease-in-out:cubic-bezier(.4,0,.2,1);--animate-spin:spin 1s linear infinite;--animate-ping:ping 1s cubic-bezier(0,0,.2,1)infinite;--animate-pulse:pulse 2s cubic-bezier(.4,0,.6,1)infinite;--animate-bounce:bounce 1s infinite;--blur-xs:4px;--blur-sm:8px;--blur-md:12px;--blur-lg:16px;--blur-xl:24px;--blur-2xl:40px;--blur-3xl:64px;--perspective-dramatic:100px;--perspective-near:300px;--perspective-normal:500px;--perspective-midrange:800px;--perspective-distant:1200px;--aspect-video:16/9;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4,0,.2,1);--default-font-family:var(--font-sans);--default-font-feature-settings:var(--font-sans--font-feature-settings);--default-font-variation-settings:var(--font-sans--font-variation-settings);--default-mono-font-family:var(--font-mono);--default-mono-font-feature-settings:var(--font-mono--font-feature-settings);--default-mono-font-variation-settings:var(--font-mono--font-variation-settings)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}body{line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1;color:color-mix(in oklab,currentColor 50%,transparent)}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){-webkit-appearance:button;-moz-appearance:button;appearance:button}::file-selector-button{-webkit-appearance:button;-moz-appearance:button;appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}}@layer components;@layer utilities{.absolute{position:absolute}.relative{position:relative}.static{position:static}.inset-0{inset:calc(var(--spacing)*0)}.-mt-\[4\.9rem\]{margin-top:-4.9rem}.-mb-px{margin-bottom:-1px}.mb-1{margin-bottom:calc(var(--spacing)*1)}.mb-2{margin-bottom:calc(var(--spacing)*2)}.mb-4{margin-bottom:calc(var(--spacing)*4)}.mb-6{margin-bottom:calc(var(--spacing)*6)}.-ml-8{margin-left:calc(var(--spacing)*-8)}.flex{display:flex}.hidden{display:none}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.table{display:table}.aspect-\[335\/376\]{aspect-ratio:335/376}.h-1{height:calc(var(--spacing)*1)}.h-1\.5{height:calc(var(--spacing)*1.5)}.h-2{height:calc(var(--spacing)*2)}.h-2\.5{height:calc(var(--spacing)*2.5)}.h-3{height:calc(var(--spacing)*3)}.h-3\.5{height:calc(var(--spacing)*3.5)}.h-14{height:calc(var(--spacing)*14)}.h-14\.5{height:calc(var(--spacing)*14.5)}.min-h-screen{min-height:100vh}.w-1{width:calc(var(--spacing)*1)}.w-1\.5{width:calc(var(--spacing)*1.5)}.w-2{width:calc(var(--spacing)*2)}.w-2\.5{width:calc(var(--spacing)*2.5)}.w-3{width:calc(var(--spacing)*3)}.w-3\.5{width:calc(var(--spacing)*3.5)}.w-\[448px\]{width:448px}.w-full{width:100%}.max-w-\[335px\]{max-width:335px}.max-w-none{max-width:none}.flex-1{flex:1}.shrink-0{flex-shrink:0}.translate-y-0{--tw-translate-y:calc(var(--spacing)*0);translate:var(--tw-translate-x)var(--tw-translate-y)}.transform{transform:var(--tw-rotate-x)var(--tw-rotate-y)var(--tw-rotate-z)var(--tw-skew-x)var(--tw-skew-y)}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.items-center{align-items:center}.justify-center{justify-content:center}.justify-end{justify-content:flex-end}.gap-3{gap:calc(var(--spacing)*3)}.gap-4{gap:calc(var(--spacing)*4)}:where(.space-x-1>:not(:last-child)){--tw-space-x-reverse:0;margin-inline-start:calc(calc(var(--spacing)*1)*var(--tw-space-x-reverse));margin-inline-end:calc(calc(var(--spacing)*1)*calc(1 - var(--tw-space-x-reverse)))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:3.40282e38px}.rounded-sm{border-radius:var(--radius-sm)}.rounded-t-lg{border-top-left-radius:var(--radius-lg);border-top-right-radius:var(--radius-lg)}.rounded-br-lg{border-bottom-right-radius:var(--radius-lg)}.rounded-bl-lg{border-bottom-left-radius:var(--radius-lg)}.border{border-style:var(--tw-border-style);border-width:1px}.border-\[\#19140035\]{border-color:#19140035}.border-\[\#e3e3e0\]{border-color:#e3e3e0}.border-black{border-color:var(--color-black)}.border-transparent{border-color:#0000}.bg-\[\#1b1b18\]{background-color:#1b1b18}.bg-\[\#FDFDFC\]{background-color:#fdfdfc}.bg-\[\#dbdbd7\]{background-color:#dbdbd7}.bg-\[\#fff2f2\]{background-color:#fff2f2}.bg-white{background-color:var(--color-white)}.p-6{padding:calc(var(--spacing)*6)}.px-5{padding-inline:calc(var(--spacing)*5)}.py-1{padding-block:calc(var(--spacing)*1)}.py-1\.5{padding-block:calc(var(--spacing)*1.5)}.py-2{padding-block:calc(var(--spacing)*2)}.pb-12{padding-bottom:calc(var(--spacing)*12)}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-\[13px\]{font-size:13px}.leading-\[20px\]{--tw-leading:20px;line-height:20px}.leading-normal{--tw-leading:var(--leading-normal);line-height:var(--leading-normal)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.text-\[\#1b1b18\]{color:#1b1b18}.text-\[\#706f6c\]{color:#706f6c}.text-\[\#F53003\],.text-\[\#f53003\]{color:#f53003}.text-white{color:var(--color-white)}.underline{text-decoration-line:underline}.underline-offset-4{text-underline-offset:4px}.opacity-100{opacity:1}.shadow-\[0px_0px_1px_0px_rgba\(0\,0\,0\,0\.03\)\,0px_1px_2px_0px_rgba\(0\,0\,0\,0\.06\)\]{--tw-shadow:0px 0px 1px 0px var(--tw-shadow-color,#00000008),0px 1px 2px 0px var(--tw-shadow-color,#0000000f);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-\[inset_0px_0px_0px_1px_rgba\(26\,26\,0\,0\.16\)\]{--tw-shadow:inset 0px 0px 0px 1px var(--tw-shadow-color,#1a1a0029);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.\!filter{filter:var(--tw-blur,)var(--tw-brightness,)var(--tw-contrast,)var(--tw-grayscale,)var(--tw-hue-rotate,)var(--tw-invert,)var(--tw-saturate,)var(--tw-sepia,)var(--tw-drop-shadow,)!important}.filter{filter:var(--tw-blur,)var(--tw-brightness,)var(--tw-contrast,)var(--tw-grayscale,)var(--tw-hue-rotate,)var(--tw-invert,)var(--tw-saturate,)var(--tw-sepia,)var(--tw-drop-shadow,)}.transition-all{transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-opacity{transition-property:opacity;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.delay-300{transition-delay:.3s}.duration-750{--tw-duration:.75s;transition-duration:.75s}.not-has-\[nav\]\:hidden:not(:has(:is(nav))){display:none}.before\:absolute:before{content:var(--tw-content);position:absolute}.before\:top-0:before{content:var(--tw-content);top:calc(var(--spacing)*0)}.before\:top-1\/2:before{content:var(--tw-content);top:50%}.before\:bottom-0:before{content:var(--tw-content);bottom:calc(var(--spacing)*0)}.before\:bottom-1\/2:before{content:var(--tw-content);bottom:50%}.before\:left-\[0\.4rem\]:before{content:var(--tw-content);left:.4rem}.before\:border-l:before{content:var(--tw-content);border-left-style:var(--tw-border-style);border-left-width:1px}.before\:border-\[\#e3e3e0\]:before{content:var(--tw-content);border-color:#e3e3e0}@media (hover:hover){.hover\:border-\[\#1915014a\]:hover{border-color:#1915014a}.hover\:border-\[\#19140035\]:hover{border-color:#19140035}.hover\:border-black:hover{border-color:var(--color-black)}.hover\:bg-black:hover{background-color:var(--color-black)}}@media (width>=64rem){.lg\:-mt-\[6\.6rem\]{margin-top:-6.6rem}.lg\:mb-0{margin-bottom:calc(var(--spacing)*0)}.lg\:mb-6{margin-bottom:calc(var(--spacing)*6)}.lg\:-ml-px{margin-left:-1px}.lg\:ml-0{margin-left:calc(var(--spacing)*0)}.lg\:block{display:block}.lg\:aspect-auto{aspect-ratio:auto}.lg\:w-\[438px\]{width:438px}.lg\:max-w-4xl{max-width:var(--container-4xl)}.lg\:grow{flex-grow:1}.lg\:flex-row{flex-direction:row}.lg\:justify-center{justify-content:center}.lg\:rounded-t-none{border-top-left-radius:0;border-top-right-radius:0}.lg\:rounded-tl-lg{border-top-left-radius:var(--radius-lg)}.lg\:rounded-r-lg{border-top-right-radius:var(--radius-lg);border-bottom-right-radius:var(--radius-lg)}.lg\:rounded-br-none{border-bottom-right-radius:0}.lg\:p-8{padding:calc(var(--spacing)*8)}.lg\:p-20{padding:calc(var(--spacing)*20)}}@media (prefers-color-scheme:dark){.dark\:block{display:block}.dark\:hidden{display:none}.dark\:border-\[\#3E3E3A\]{border-color:#3e3e3a}.dark\:border-\[\#eeeeec\]{border-color:#eeeeec}.dark\:bg-\[\#0a0a0a\]{background-color:#0a0a0a}.dark\:bg-\[\#1D0002\]{background-color:#1d0002}.dark\:bg-\[\#3E3E3A\]{background-color:#3e3e3a}.dark\:bg-\[\#161615\]{background-color:#161615}.dark\:bg-\[\#eeeeec\]{background-color:#eeeeec}.dark\:text-\[\#1C1C1A\]{color:#1c1c1a}.dark\:text-\[\#A1A09A\]{color:#a1a09a}.dark\:text-\[\#EDEDEC\]{color:#ededec}.dark\:text-\[\#F61500\]{color:#f61500}.dark\:text-\[\#FF4433\]{color:#f43}.dark\:shadow-\[inset_0px_0px_0px_1px_\#fffaed2d\]{--tw-shadow:inset 0px 0px 0px 1px var(--tw-shadow-color,#fffaed2d);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.dark\:before\:border-\[\#3E3E3A\]:before{content:var(--tw-content);border-color:#3e3e3a}@media (hover:hover){.dark\:hover\:border-\[\#3E3E3A\]:hover{border-color:#3e3e3a}.dark\:hover\:border-\[\#62605b\]:hover{border-color:#62605b}.dark\:hover\:border-white:hover{border-color:var(--color-white)}.dark\:hover\:bg-white:hover{background-color:var(--color-white)}}}@starting-style{.starting\:translate-y-4{--tw-translate-y:calc(var(--spacing)*4);translate:var(--tw-translate-x)var(--tw-translate-y)}}@starting-style{.starting\:translate-y-6{--tw-translate-y:calc(var(--spacing)*6);translate:var(--tw-translate-x)var(--tw-translate-y)}}@starting-style{.starting\:opacity-0{opacity:0}}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes ping{75%,to{opacity:0;transform:scale(2)}}@keyframes pulse{50%{opacity:.5}}@keyframes bounce{0%,to{animation-timing-function:cubic-bezier(.8,0,1,1);transform:translateY(-25%)}50%{animation-timing-function:cubic-bezier(0,0,.2,1);transform:none}}@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-rotate-x{syntax:"*";inherits:false;initial-value:rotateX(0)}@property --tw-rotate-y{syntax:"*";inherits:false;initial-value:rotateY(0)}@property --tw-rotate-z{syntax:"*";inherits:false;initial-value:rotateZ(0)}@property --tw-skew-x{syntax:"*";inherits:false;initial-value:skewX(0)}@property --tw-skew-y{syntax:"*";inherits:false;initial-value:skewY(0)}@property --tw-space-x-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-blur{syntax:"*";inherits:false}@property --tw-brightness{syntax:"*";inherits:false}@property --tw-contrast{syntax:"*";inherits:false}@property --tw-grayscale{syntax:"*";inherits:false}@property --tw-hue-rotate{syntax:"*";inherits:false}@property --tw-invert{syntax:"*";inherits:false}@property --tw-opacity{syntax:"*";inherits:false}@property --tw-saturate{syntax:"*";inherits:false}@property --tw-sepia{syntax:"*";inherits:false}@property --tw-drop-shadow{syntax:"*";inherits:false}@property --tw-duration{syntax:"*";inherits:false}@property --tw-content{syntax:"*";inherits:false;initial-value:""}
-            </style>
-        @endif
-    </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
+    <!-- Style Css -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
 
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a>
-                        @endif
-                    @endauth
-                </nav>
-            @endif
-        </header>
-        <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-            <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
-                <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                    <h1 class="mb-1 font-medium">Let's get started</h1>
-                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">Laravel has an incredibly rich ecosystem. <br>We suggest starting with the following.</p>
-                    <ul class="flex flex-col mb-4 lg:mb-6">
-                        <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:top-1/2 before:bottom-0 before:left-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Read the
-                                <a href="https://laravel.com/docs" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                    <span>Documentation</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
-                                        <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
-                                    </svg>
-                                </a>
-                            </span>
-                        </li>
-                        <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:bottom-1/2 before:top-0 before:left-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Watch video tutorials at
-                                <a href="https://laracasts.com" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                    <span>Laracasts</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
-                                        <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
-                                    </svg>
-                                </a>
-                            </span>
-                        </li>
-                    </ul>
-                    <ul class="flex gap-3 text-sm leading-normal">
-                        <li>
-                            <a href="https://cloud.laravel.com" target="_blank" class="inline-block dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal">
-                                Deploy now
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">
-                    {{-- Laravel Logo --}}
-                    <svg class="w-full text-[#F53003] dark:text-[#F61500] transition-all translate-y-0 opacity-100 max-w-none duration-750 starting:opacity-0 starting:translate-y-6" viewBox="0 0 438 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.2036 -3H0V102.197H49.5189V86.7187H17.2036V-3Z" fill="currentColor" />
-                        <path d="M110.256 41.6337C108.061 38.1275 104.945 35.3731 100.905 33.3681C96.8667 31.3647 92.8016 30.3618 88.7131 30.3618C83.4247 30.3618 78.5885 31.3389 74.201 33.2923C69.8111 35.2456 66.0474 37.928 62.9059 41.3333C59.7643 44.7401 57.3198 48.6726 55.5754 53.1293C53.8287 57.589 52.9572 62.274 52.9572 67.1813C52.9572 72.1925 53.8287 76.8995 55.5754 81.3069C57.3191 85.7173 59.7636 89.6241 62.9059 93.0293C66.0474 96.4361 69.8119 99.1155 74.201 101.069C78.5885 103.022 83.4247 103.999 88.7131 103.999C92.8016 103.999 96.8667 102.997 100.905 100.994C104.945 98.9911 108.061 96.2359 110.256 92.7282V102.195H126.563V32.1642H110.256V41.6337ZM108.76 75.7472C107.762 78.4531 106.366 80.8078 104.572 82.8112C102.776 84.8161 100.606 86.4183 98.0637 87.6206C95.5202 88.823 92.7004 89.4238 89.6103 89.4238C86.5178 89.4238 83.7252 88.823 81.2324 87.6206C78.7388 86.4183 76.5949 84.8161 74.7998 82.8112C73.004 80.8078 71.6319 78.4531 70.6856 75.7472C69.7356 73.0421 69.2644 70.1868 69.2644 67.1821C69.2644 64.1758 69.7356 61.3205 70.6856 58.6154C71.6319 55.9102 73.004 53.5571 74.7998 51.5522C76.5949 49.5495 78.738 47.9451 81.2324 46.7427C83.7252 45.5404 86.5178 44.9396 89.6103 44.9396C92.7012 44.9396 95.5202 45.5404 98.0637 46.7427C100.606 47.9451 102.776 49.5487 104.572 51.5522C106.367 53.5571 107.762 55.9102 108.76 58.6154C109.756 61.3205 110.256 64.1758 110.256 67.1821C110.256 70.1868 109.756 73.0421 108.76 75.7472Z" fill="currentColor" />
-                        <path d="M242.805 41.6337C240.611 38.1275 237.494 35.3731 233.455 33.3681C229.416 31.3647 225.351 30.3618 221.262 30.3618C215.974 30.3618 211.138 31.3389 206.75 33.2923C202.36 35.2456 198.597 37.928 195.455 41.3333C192.314 44.7401 189.869 48.6726 188.125 53.1293C186.378 57.589 185.507 62.274 185.507 67.1813C185.507 72.1925 186.378 76.8995 188.125 81.3069C189.868 85.7173 192.313 89.6241 195.455 93.0293C198.597 96.4361 202.361 99.1155 206.75 101.069C211.138 103.022 215.974 103.999 221.262 103.999C225.351 103.999 229.416 102.997 233.455 100.994C237.494 98.9911 240.611 96.2359 242.805 92.7282V102.195H259.112V32.1642H242.805V41.6337ZM241.31 75.7472C240.312 78.4531 238.916 80.8078 237.122 82.8112C235.326 84.8161 233.156 86.4183 230.614 87.6206C228.07 88.823 225.251 89.4238 222.16 89.4238C219.068 89.4238 216.275 88.823 213.782 87.6206C211.289 86.4183 209.145 84.8161 207.35 82.8112C205.554 80.8078 204.182 78.4531 203.236 75.7472C202.286 73.0421 201.814 70.1868 201.814 67.1821C201.814 64.1758 202.286 61.3205 203.236 58.6154C204.182 55.9102 205.554 53.5571 207.35 51.5522C209.145 49.5495 211.288 47.9451 213.782 46.7427C216.275 45.5404 219.068 44.9396 222.16 44.9396C225.251 44.9396 228.07 45.5404 230.614 46.7427C233.156 47.9451 235.326 49.5487 237.122 51.5522C238.917 53.5571 240.312 55.9102 241.31 58.6154C242.306 61.3205 242.806 64.1758 242.806 67.1821C242.805 70.1868 242.305 73.0421 241.31 75.7472Z" fill="currentColor" />
-                        <path d="M438 -3H421.694V102.197H438V-3Z" fill="currentColor" />
-                        <path d="M139.43 102.197H155.735V48.2834H183.712V32.1665H139.43V102.197Z" fill="currentColor" />
-                        <path d="M324.49 32.1665L303.995 85.794L283.498 32.1665H266.983L293.748 102.197H314.242L341.006 32.1665H324.49Z" fill="currentColor" />
-                        <path d="M376.571 30.3656C356.603 30.3656 340.797 46.8497 340.797 67.1828C340.797 89.6597 356.094 104 378.661 104C391.29 104 399.354 99.1488 409.206 88.5848L398.189 80.0226C398.183 80.031 389.874 90.9895 377.468 90.9895C363.048 90.9895 356.977 79.3111 356.977 73.269H411.075C413.917 50.1328 398.775 30.3656 376.571 30.3656ZM357.02 61.0967C357.145 59.7487 359.023 43.3761 376.442 43.3761C393.861 43.3761 395.978 59.7464 396.099 61.0967H357.02Z" fill="currentColor" />
-                    </svg>
+    <!-- Simplebar Css -->
+    <link id="style" href="{{ asset('backend/assets/libs/simplebar/simplebar.min.css') }}" rel="stylesheet">
 
-                    {{-- Light Mode 12 SVG --}}
-                    <svg class="w-[448px] max-w-none relative -mt-[4.9rem] -ml-8 lg:ml-0 lg:-mt-[6.6rem] dark:hidden" viewBox="0 0 440 376" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z" fill="black" />
-                            <path d="M9.11884 226.339L-13.7396 226.338L-42.7286 176.132L43.0733 176.135L175.595 405.649L112.651 405.647L9.11884 226.339Z" fill="black" />
-                            <path d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M9.11884 226.339L-13.7396 226.338L-42.7286 176.132L43.0733 176.135L175.595 405.649L112.651 405.647L9.11884 226.339Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M204.592 327.449L204.923 327.449C211.769 320.564 222.094 311.479 235.897 300.196C249.258 288.912 259.306 279.923 266.042 273.23C272.668 266.345 277.195 259.077 279.624 251.427C282.053 243.777 280.893 235.839 276.145 227.615C270.844 218.435 263.39 211.071 253.782 205.524C244.285 199.786 234.236 196.917 223.635 196.916C213.255 196.916 206.464 199.689 203.262 205.235C199.949 210.59 201.054 218.049 206.575 227.612L141.975 227.61C132.699 211.544 128.723 197.2 130.048 184.577C131.593 171.954 137.887 162.2 148.93 155.315C160.083 148.239 174.935 144.701 193.487 144.702C212.922 144.703 232.192 148.242 251.296 155.319C270.289 162.205 287.627 171.96 303.308 184.583C318.989 197.207 331.468 211.552 340.745 227.618C349.358 242.536 353.169 255.637 352.175 266.921C351.403 278.205 347.704 288.055 341.078 296.47C334.674 304.885 324.736 315.213 311.264 327.453L393.422 327.456L422.246 377.375L233.415 377.368L204.592 327.449Z" fill="#F8B803" />
-                            <path d="M25.447 198.058L2.58852 198.057L-26.4005 147.851L59.4015 147.854L191.923 377.368L128.979 377.365L25.447 198.058Z" fill="#F8B803" />
-                            <path d="M204.592 327.449L204.923 327.449C211.769 320.564 222.094 311.479 235.897 300.196C249.258 288.912 259.306 279.923 266.042 273.23C272.668 266.345 277.195 259.077 279.624 251.427C282.053 243.777 280.893 235.839 276.145 227.615C270.844 218.435 263.39 211.071 253.782 205.524C244.285 199.786 234.236 196.917 223.635 196.916C213.255 196.916 206.464 199.689 203.262 205.235C199.949 210.59 201.054 218.049 206.575 227.612L141.975 227.61C132.699 211.544 128.723 197.2 130.048 184.577C131.593 171.954 137.887 162.2 148.93 155.315C160.083 148.239 174.935 144.701 193.487 144.702C212.922 144.703 232.192 148.242 251.296 155.319C270.289 162.205 287.627 171.96 303.308 184.583C318.989 197.207 331.468 211.552 340.745 227.618C349.358 242.536 353.169 255.637 352.175 266.921C351.403 278.205 347.704 288.055 341.078 296.47C334.674 304.885 324.736 315.213 311.264 327.453L393.422 327.456L422.246 377.375L233.415 377.368L204.592 327.449Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M25.447 198.058L2.58852 198.057L-26.4005 147.851L59.4015 147.854L191.923 377.368L128.979 377.365L25.447 198.058Z" stroke="#1B1B18" stroke-width="1" />
-                        </g>
-                        <g style="mix-blend-mode: hard-light" class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" fill="#F0ACB8" />
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" fill="#F0ACB8" />
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" stroke="#1B1B18" stroke-width="1" />
-                        </g>
-                        <g style="mix-blend-mode: plus-darker" class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M230.951 281.792L231.282 281.793C238.128 274.907 248.453 265.823 262.256 254.539C275.617 243.256 285.666 234.267 292.402 227.573C299.027 220.688 303.554 213.421 305.983 205.771C308.412 198.12 307.253 190.183 302.504 181.959C297.203 172.778 289.749 165.415 280.142 159.868C270.645 154.13 260.596 151.26 249.995 151.26C239.615 151.26 232.823 154.033 229.621 159.579C226.309 164.934 227.413 172.393 232.935 181.956L168.335 181.954C159.058 165.888 155.082 151.543 156.407 138.92C157.953 126.298 164.247 116.544 175.289 109.659C186.442 102.583 201.294 99.045 219.846 99.0457C239.281 99.0464 258.551 102.585 277.655 109.663C296.649 116.549 313.986 126.303 329.667 138.927C345.349 151.551 357.827 165.895 367.104 181.961C375.718 196.88 379.528 209.981 378.535 221.265C377.762 232.549 374.063 242.399 367.438 250.814C361.033 259.229 351.095 269.557 337.624 281.796L419.782 281.8L448.605 331.719L259.774 331.712L230.951 281.792Z" fill="#F3BEC7" />
-                            <path d="M51.8063 152.402L28.9479 152.401L-0.0411453 102.195L85.7608 102.198L218.282 331.711L155.339 331.709L51.8063 152.402Z" fill="#F3BEC7" />
-                            <path d="M230.951 281.792L231.282 281.793C238.128 274.907 248.453 265.823 262.256 254.539C275.617 243.256 285.666 234.267 292.402 227.573C299.027 220.688 303.554 213.421 305.983 205.771C308.412 198.12 307.253 190.183 302.504 181.959C297.203 172.778 289.749 165.415 280.142 159.868C270.645 154.13 260.596 151.26 249.995 151.26C239.615 151.26 232.823 154.033 229.621 159.579C226.309 164.934 227.413 172.393 232.935 181.956L168.335 181.954C159.058 165.888 155.082 151.543 156.407 138.92C157.953 126.298 164.247 116.544 175.289 109.659C186.442 102.583 201.294 99.045 219.846 99.0457C239.281 99.0464 258.551 102.585 277.655 109.663C296.649 116.549 313.986 126.303 329.667 138.927C345.349 151.551 357.827 165.895 367.104 181.961C375.718 196.88 379.528 209.981 378.535 221.265C377.762 232.549 374.063 242.399 367.438 250.814C361.033 259.229 351.095 269.557 337.624 281.796L419.782 281.8L448.605 331.719L259.774 331.712L230.951 281.792Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M51.8063 152.402L28.9479 152.401L-0.0411453 102.195L85.7608 102.198L218.282 331.711L155.339 331.709L51.8063 152.402Z" stroke="#1B1B18" stroke-width="1" />
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M188.467 355.363L188.798 355.363C195.644 348.478 205.969 339.393 219.772 328.11C233.133 316.826 243.181 307.837 249.917 301.144C253.696 297.217 256.792 293.166 259.205 288.991C261.024 285.845 262.455 282.628 263.499 279.341C265.928 271.691 264.768 263.753 260.02 255.529C254.719 246.349 247.265 238.985 237.657 233.438C228.16 227.7 218.111 224.831 207.51 224.83C197.13 224.83 190.339 227.603 187.137 233.149C183.824 238.504 184.929 245.963 190.45 255.527L125.851 255.524C116.574 239.458 112.598 225.114 113.923 212.491C114.615 206.836 116.261 201.756 118.859 197.253C122.061 191.704 126.709 187.03 132.805 183.229C143.958 176.153 158.81 172.615 177.362 172.616C196.797 172.617 216.067 176.156 235.171 183.233C254.164 190.119 271.502 199.874 287.183 212.497C302.864 225.121 315.343 239.466 324.62 255.532C333.233 270.45 337.044 283.551 336.05 294.835C335.46 303.459 333.16 311.245 329.151 318.194C327.915 320.337 326.515 322.4 324.953 324.384C318.549 332.799 308.611 343.127 295.139 355.367L377.297 355.37L406.121 405.289L217.29 405.282L188.467 355.363Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M9.32197 225.972L-13.5365 225.971L-42.5255 175.765L43.2765 175.768L175.798 405.282L112.854 405.279L9.32197 225.972Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M345.247 111.915C329.566 99.2919 312.229 89.5371 293.235 82.6512L235.167 183.228C254.161 190.114 271.498 199.869 287.179 212.492L345.247 111.915Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M382.686 154.964C373.41 138.898 360.931 124.553 345.25 111.93L287.182 212.506C302.863 225.13 315.342 239.475 324.618 255.541L382.686 154.964Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M293.243 82.6472C274.139 75.57 254.869 72.031 235.434 72.0303L177.366 172.607C196.801 172.608 216.071 176.147 235.175 183.224L293.243 82.6472Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M394.118 194.257C395.112 182.973 391.301 169.872 382.688 154.953L324.619 255.53C333.233 270.448 337.044 283.55 336.05 294.834L394.118 194.257Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M235.432 72.0311C216.88 72.0304 202.027 75.5681 190.875 82.6442L132.806 183.221C143.959 176.145 158.812 172.607 177.363 172.608L235.432 72.0311Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M265.59 124.25C276.191 124.251 286.24 127.12 295.737 132.858L237.669 233.435C228.172 227.697 218.123 224.828 207.522 224.827L265.59 124.25Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M295.719 132.859C305.326 138.406 312.78 145.77 318.081 154.95L260.013 255.527C254.712 246.347 247.258 238.983 237.651 233.436L295.719 132.859Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M387.218 217.608C391.227 210.66 393.527 202.874 394.117 194.25L336.049 294.827C335.459 303.451 333.159 311.237 329.15 318.185L387.218 217.608Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M245.211 132.577C248.413 127.03 255.204 124.257 265.584 124.258L207.516 224.835C197.136 224.834 190.345 227.607 187.143 233.154L245.211 132.577Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M318.094 154.945C322.842 163.17 324.002 171.107 321.573 178.757L263.505 279.334C265.934 271.684 264.774 263.746 260.026 255.522L318.094 154.945Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M176.925 96.6737C180.127 91.1249 184.776 86.4503 190.871 82.6499L132.803 183.227C126.708 187.027 122.059 191.702 118.857 197.25L176.925 96.6737Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M387.226 217.606C385.989 219.749 384.59 221.813 383.028 223.797L324.96 324.373C326.522 322.39 327.921 320.326 329.157 318.183L387.226 217.606Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M317.269 188.408C319.087 185.262 320.519 182.045 321.562 178.758L263.494 279.335C262.451 282.622 261.019 285.839 259.201 288.985L317.269 188.408Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M245.208 132.573C241.895 137.928 243 145.387 248.522 154.95L190.454 255.527C184.932 245.964 183.827 238.505 187.14 233.15L245.208 132.573Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M176.93 96.6719C174.331 101.175 172.686 106.255 171.993 111.91L113.925 212.487C114.618 206.831 116.263 201.752 118.862 197.249L176.93 96.6719Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M317.266 188.413C314.853 192.589 311.757 196.64 307.978 200.566L249.91 301.143C253.689 297.216 256.785 293.166 259.198 288.99L317.266 188.413Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M464.198 304.708L435.375 254.789L377.307 355.366L406.13 405.285L464.198 304.708Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M353.209 254.787C366.68 242.548 376.618 232.22 383.023 223.805L324.955 324.382C318.55 332.797 308.612 343.124 295.141 355.364L353.209 254.787Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M435.37 254.787L353.212 254.784L295.144 355.361L377.302 355.364L435.37 254.787Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M183.921 154.947L248.521 154.95L190.453 255.527L125.853 255.524L183.921 154.947Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M171.992 111.914C170.668 124.537 174.643 138.881 183.92 154.947L125.852 255.524C116.575 239.458 112.599 225.114 113.924 212.491L171.992 111.914Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M307.987 200.562C301.251 207.256 291.203 216.244 277.842 227.528L219.774 328.105C233.135 316.821 243.183 307.832 249.919 301.139L307.987 200.562Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M15.5469 75.1797L44.5359 125.386L-13.5321 225.963L-42.5212 175.756L15.5469 75.1797Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M277.836 227.536C264.033 238.82 253.708 247.904 246.862 254.789L188.794 355.366C195.64 348.481 205.965 339.397 219.768 328.113L277.836 227.536Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M275.358 304.706L464.189 304.713L406.12 405.29L217.29 405.283L275.358 304.706Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M44.5279 125.39L67.3864 125.39L9.31834 225.967L-13.5401 225.966L44.5279 125.39Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M101.341 75.1911L233.863 304.705L175.795 405.282L43.2733 175.768L101.341 75.1911ZM15.5431 75.19L-42.525 175.767L43.277 175.77L101.345 75.1932L15.5431 75.19Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M246.866 254.784L246.534 254.784L188.466 355.361L188.798 355.361L246.866 254.784Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M246.539 254.781L275.362 304.701L217.294 405.277L188.471 355.358L246.539 254.781Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M67.3906 125.391L170.923 304.698L112.855 405.275L9.32257 225.967L67.3906 125.391Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M170.921 304.699L233.865 304.701L175.797 405.278L112.853 405.276L170.921 304.699Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                        </g>
-                        <g style="mix-blend-mode: hard-light" class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z" fill="#F0ACB8" />
-                            <path d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="round" />
-                        </g>
-                        <g style="mix-blend-mode: hard-light" class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z" fill="#F0ACB8" />
-                            <path d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z" stroke="#1B1B18" stroke-width="1" />
-                        </g>
-                    </svg>
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/libs/@simonwep/pickr/themes/nano.min.css') }}">
 
-                    {{-- Dark Mode 12 SVG --}}
-                    <svg class="w-[448px] max-w-none relative -mt-[4.9rem] -ml-8 lg:ml-0 lg:-mt-[6.6rem] hidden dark:block" viewBox="0 0 440 376" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z" fill="black"/>
-                            <path d="M9.11884 226.339L-13.7396 226.338L-42.7286 176.132L43.0733 176.135L175.595 405.649L112.651 405.647L9.11884 226.339Z" fill="black"/>
-                            <path d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M9.11884 226.339L-13.7396 226.338L-42.7286 176.132L43.0733 176.135L175.595 405.649L112.651 405.647L9.11884 226.339Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M204.592 327.449L204.923 327.449C211.769 320.564 222.094 311.479 235.897 300.196C249.258 288.912 259.306 279.923 266.042 273.23C272.668 266.345 277.195 259.077 279.624 251.427C282.053 243.777 280.893 235.839 276.145 227.615C270.844 218.435 263.39 211.071 253.782 205.524C244.285 199.786 234.236 196.917 223.635 196.916C213.255 196.916 206.464 199.689 203.262 205.235C199.949 210.59 201.054 218.049 206.575 227.612L141.975 227.61C132.699 211.544 128.723 197.2 130.048 184.577C131.593 171.954 137.887 162.2 148.93 155.315C160.083 148.239 174.935 144.701 193.487 144.702C212.922 144.703 232.192 148.242 251.296 155.319C270.289 162.205 287.627 171.96 303.308 184.583C318.989 197.207 331.468 211.552 340.745 227.618C349.358 242.536 353.169 255.637 352.175 266.921C351.403 278.205 347.704 288.055 341.078 296.47C334.674 304.885 324.736 315.213 311.264 327.453L393.422 327.456L422.246 377.375L233.415 377.368L204.592 327.449Z" fill="#391800"/>
-                            <path d="M25.447 198.058L2.58852 198.057L-26.4005 147.851L59.4015 147.854L191.923 377.368L128.979 377.365L25.447 198.058Z" fill="#391800"/>
-                            <path d="M204.592 327.449L204.923 327.449C211.769 320.564 222.094 311.479 235.897 300.196C249.258 288.912 259.306 279.923 266.042 273.23C272.668 266.345 277.195 259.077 279.624 251.427C282.053 243.777 280.893 235.839 276.145 227.615C270.844 218.435 263.39 211.071 253.782 205.524C244.285 199.786 234.236 196.917 223.635 196.916C213.255 196.916 206.464 199.689 203.262 205.235C199.949 210.59 201.054 218.049 206.575 227.612L141.975 227.61C132.699 211.544 128.723 197.2 130.048 184.577C131.593 171.954 137.887 162.2 148.93 155.315C160.083 148.239 174.935 144.701 193.487 144.702C212.922 144.703 232.192 148.242 251.296 155.319C270.289 162.205 287.627 171.96 303.308 184.583C318.989 197.207 331.468 211.552 340.745 227.618C349.358 242.536 353.169 255.637 352.175 266.921C351.403 278.205 347.704 288.055 341.078 296.47C334.674 304.885 324.736 315.213 311.264 327.453L393.422 327.456L422.246 377.375L233.415 377.368L204.592 327.449Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M25.447 198.058L2.58852 198.057L-26.4005 147.851L59.4015 147.854L191.923 377.368L128.979 377.365L25.447 198.058Z" stroke="#FF750F" stroke-width="1"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4" style="mix-blend-mode:hard-light">
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" fill="#733000"/>
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" fill="#733000"/>
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" stroke="#FF750F" stroke-width="1"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.726 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" stroke="#FF750F" stroke-width="1"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M188.467 355.363L188.798 355.363C195.644 348.478 205.969 339.393 219.772 328.11C233.133 316.826 243.181 307.837 249.917 301.144C253.696 297.217 256.792 293.166 259.205 288.991C261.024 285.845 262.455 282.628 263.499 279.341C265.928 271.691 264.768 263.753 260.02 255.529C254.719 246.349 247.265 238.985 237.657 233.438C228.16 227.7 218.111 224.831 207.51 224.83C197.13 224.83 190.339 227.603 187.137 233.149C183.824 238.504 184.929 245.963 190.45 255.527L125.851 255.524C116.574 239.458 112.598 225.114 113.923 212.491C114.615 206.836 116.261 201.756 118.859 197.253C122.061 191.704 126.709 187.03 132.805 183.229C143.958 176.153 158.81 172.615 177.362 172.616C196.797 172.617 216.067 176.156 235.171 183.233C254.164 190.119 271.502 199.874 287.183 212.497C302.864 225.121 315.343 239.466 324.62 255.532C333.233 270.45 337.044 283.551 336.05 294.835C335.46 303.459 333.16 311.245 329.151 318.194C327.915 320.337 326.515 322.4 324.953 324.384C318.549 332.799 308.611 343.127 295.139 355.367L377.297 355.37L406.121 405.289L217.29 405.282L188.467 355.363Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M9.32197 225.972L-13.5365 225.971L-42.5255 175.765L43.2765 175.768L175.798 405.282L112.854 405.279L9.32197 225.972Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M345.247 111.915C329.566 99.2919 312.229 89.5371 293.235 82.6512L235.167 183.228C254.161 190.114 271.498 199.869 287.179 212.492L345.247 111.915Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M382.686 154.964C373.41 138.898 360.931 124.553 345.25 111.93L287.182 212.506C302.863 225.13 315.342 239.475 324.618 255.541L382.686 154.964Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M293.243 82.6472C274.139 75.57 254.869 72.031 235.434 72.0303L177.366 172.607C196.801 172.608 216.071 176.147 235.175 183.224L293.243 82.6472Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M394.118 194.257C395.112 182.973 391.301 169.872 382.688 154.953L324.619 255.53C333.233 270.448 337.044 283.55 336.05 294.834L394.118 194.257Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M235.432 72.0311C216.88 72.0304 202.027 75.5681 190.875 82.6442L132.806 183.221C143.959 176.145 158.812 172.607 177.363 172.608L235.432 72.0311Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M265.59 124.25C276.191 124.251 286.24 127.12 295.737 132.858L237.669 233.435C228.172 227.697 218.123 224.828 207.522 224.827L265.59 124.25Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M295.719 132.859C305.326 138.406 312.78 145.77 318.081 154.95L260.013 255.527C254.712 246.347 247.258 238.983 237.651 233.436L295.719 132.859Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M387.218 217.608C391.227 210.66 393.527 202.874 394.117 194.25L336.049 294.827C335.459 303.451 333.159 311.237 329.15 318.185L387.218 217.608Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M245.211 132.577C248.413 127.03 255.204 124.257 265.584 124.258L207.516 224.835C197.136 224.834 190.345 227.607 187.143 233.154L245.211 132.577Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M318.094 154.945C322.842 163.17 324.002 171.107 321.573 178.757L263.505 279.334C265.934 271.684 264.774 263.746 260.026 255.522L318.094 154.945Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M176.925 96.6737C180.127 91.1249 184.776 86.4503 190.871 82.6499L132.803 183.227C126.708 187.027 122.059 191.702 118.857 197.25L176.925 96.6737Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M387.226 217.606C385.989 219.749 384.59 221.813 383.028 223.797L324.96 324.373C326.522 322.39 327.921 320.326 329.157 318.183L387.226 217.606Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M317.269 188.408C319.087 185.262 320.519 182.045 321.562 178.758L263.494 279.335C262.451 282.622 261.019 285.839 259.201 288.985L317.269 188.408Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M245.208 132.573C241.895 137.928 243 145.387 248.522 154.95L190.454 255.527C184.932 245.964 183.827 238.505 187.14 233.15L245.208 132.573Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M176.93 96.6719C174.331 101.175 172.686 106.255 171.993 111.91L113.925 212.487C114.618 206.831 116.263 201.752 118.862 197.249L176.93 96.6719Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M317.266 188.413C314.853 192.589 311.757 196.64 307.978 200.566L249.91 301.143C253.689 297.216 256.785 293.166 259.198 288.99L317.266 188.413Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M464.198 304.708L435.375 254.789L377.307 355.366L406.13 405.285L464.198 304.708Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M353.209 254.787C366.68 242.548 376.618 232.22 383.023 223.805L324.955 324.382C318.55 332.797 308.612 343.124 295.141 355.364L353.209 254.787Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M435.37 254.787L353.212 254.784L295.144 355.361L377.302 355.364L435.37 254.787Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M183.921 154.947L248.521 154.95L190.453 255.527L125.853 255.524L183.921 154.947Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M171.992 111.914C170.668 124.537 174.643 138.881 183.92 154.947L125.852 255.524C116.575 239.458 112.599 225.114 113.924 212.491L171.992 111.914Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M307.987 200.562C301.251 207.256 291.203 216.244 277.842 227.528L219.774 328.105C233.135 316.821 243.183 307.832 249.919 301.139L307.987 200.562Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M15.5469 75.1797L44.5359 125.386L-13.5321 225.963L-42.5212 175.756L15.5469 75.1797Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M277.836 227.536C264.033 238.82 253.708 247.904 246.862 254.789L188.794 355.366C195.64 348.481 205.965 339.397 219.768 328.113L277.836 227.536Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M275.358 304.706L464.189 304.713L406.12 405.29L217.29 405.283L275.358 304.706Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M44.5279 125.39L67.3864 125.39L9.31834 225.967L-13.5401 225.966L44.5279 125.39Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M101.341 75.1911L233.863 304.705L175.795 405.282L43.2733 175.768L101.341 75.1911ZM15.5431 75.19L-42.525 175.767L43.277 175.77L101.345 75.1932L15.5431 75.19Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M246.866 254.784L246.534 254.784L188.466 355.361L188.798 355.361L246.866 254.784Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M246.539 254.781L275.362 304.701L217.294 405.277L188.471 355.358L246.539 254.781Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M67.3906 125.391L170.923 304.698L112.855 405.275L9.32257 225.967L67.3906 125.391Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M170.921 304.699L233.865 304.701L175.797 405.278L112.853 405.276L170.921 304.699Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4" style="mix-blend-mode:hard-light">
-                            <path d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z" fill="#4B0600"/>
-                            <path d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="round"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4" style="mix-blend-mode:hard-light">
-                            <path d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z" fill="#4B0600"/>
-                            <path d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z" stroke="#FF750F" stroke-width="1"/>
-                        </g>
-                    </svg>
-                    <div class="absolute inset-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]"></div>
-                </div>
-            </main>
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/libs/swiper/swiper-bundle.min.css') }}">
+
+</head>
+
+
+<body class="landing-body">
+
+    <!-- ========== Switcher  ========== -->
+    <div id="hs-overlay-switcher" class="hs-overlay hidden ti-offcanvas ti-offcanvas-right" tabindex="-1">
+        <div class="ti-offcanvas-header">
+            <h5 class="ti-offcanvas-title">
+                Switcher
+            </h5>
+            <button type="button"
+                class="ti-btn flex-shrink-0 p-0 transition-none text-defaulttextcolor dark:text-defaulttextcolor/70 hover:text-gray-700 focus:ring-gray-400 focus:ring-offset-white  dark:hover:text-white/80 dark:focus:ring-white/10 dark:focus:ring-offset-white/10"
+                data-hs-overlay="#hs-overlay-switcher">
+                <span class="sr-only">Close modal</span>
+                <i class="ri-close-circle-line leading-none text-lg"></i>
+            </button>
         </div>
+        <div class="ti-offcanvas-body" id="switcher-body">
+            <div>
+                <div>
+                    <p class="switcher-style-head">Theme Color Mode:</p>
+                    <div class="grid grid-cols-3 gap-x-6 switcher-style">
+                        <div class="flex">
+                            <input type="radio" name="theme-style" class="ti-form-radio" id="switcher-light-theme"
+                                checked>
+                            <label for="switcher-light-theme"
+                                class="text-xs text-defaulttextcolor dark:text-defaulttextcolor/70 font-semibold ltr:ml-2 rtl:mr-2 ">Light</label>
+                        </div>
+                        <div class="flex">
+                            <input type="radio" name="theme-style" class="ti-form-radio" id="switcher-dark-theme">
+                            <label for="switcher-dark-theme"
+                                class="text-xs text-defaulttextcolor dark:text-defaulttextcolor/70 font-semibold ltr:ml-2 rtl:mr-2 ">Dark</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="switcher-style-head">Directions:</p>
+                    <div class="grid grid-cols-3 gap-x-6 switcher-style">
+                        <div class="flex">
+                            <input type="radio" name="direction" class="ti-form-radio" id="switcher-ltr" checked>
+                            <label for="switcher-ltr"
+                                class="text-xs font-semibold text-defaulttextcolor dark:text-defaulttextcolor/70 ltr:ml-2 rtl:mr-2 ">LTR</label>
+                        </div>
+                        <div class="flex">
+                            <input type="radio" name="direction" class="ti-form-radio" id="switcher-rtl">
+                            <label for="switcher-rtl"
+                                class="text-xs font-semibold text-defaulttextcolor dark:text-defaulttextcolor/70 ltr:ml-2 rtl:mr-2 ">RTL</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="theme-colors">
+                    <p class="switcher-style-head">Theme Primary:</p>
+                    <div class="flex switcher-style space-x-3 rtl:space-x-reverse">
+                        <div class="ti-form-radio switch-select">
+                            <input class="ti-form-radio color-input color-primary-1" type="radio" name="theme-primary"
+                                id="switcher-primary" checked>
+                        </div>
+                        <div class="ti-form-radio switch-select">
+                            <input class="ti-form-radio color-input color-primary-2" type="radio" name="theme-primary"
+                                id="switcher-primary1">
+                        </div>
+                        <div class="ti-form-radio switch-select">
+                            <input class="ti-form-radio color-input color-primary-3" type="radio" name="theme-primary"
+                                id="switcher-primary2">
+                        </div>
+                        <div class="ti-form-radio switch-select">
+                            <input class="ti-form-radio color-input color-primary-4" type="radio" name="theme-primary"
+                                id="switcher-primary3">
+                        </div>
+                        <div class="ti-form-radio switch-select">
+                            <input class="ti-form-radio color-input color-primary-5" type="radio" name="theme-primary"
+                                id="switcher-primary4">
+                        </div>
+                        <div class="ti-form-radio switch-select ltr:pl-0 rtl:pr-0 mt-1 color-primary-light">
+                            <div class="theme-container-primary"></div>
+                            <div class="pickr-container-primary"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="switcher-style-head">Reset:</p>
+                    <div class="flex justify-center">
+                        <a id="reset-all" class="ti-btn ti-btn-danger-full mt-4" href="javascript:void(0);">Reset</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== END Switcher  ========== -->
 
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
-    </body>
+    <div class="landing-page-wrapper relative">
+
+        <!-- Start::Header -->
+         <header class="app-header">
+
+        <!-- Start::main-header-container -->
+        <div class="main-header-container container-fluid">
+
+            <!-- Start::header-content-left -->
+            <div class="header-content-left">
+
+                <!-- Start::header-element -->
+                <div class="header-element">
+                    <div class="horizontal-logo">
+                        <a href="{{ url('/') }}" class="header-logo">
+                            <img src="{{ asset('backend/assets/images/brand-logos/toggle-logo.png') }}" alt="logo" class="toggle-logo">
+                            <img src="{{ asset('backend/assets/images/brand-logos/toggle-dark.png') }}" alt="logo" class="toggle-dark">
+                        </a>
+                    </div>
+                </div>
+                <!-- End::header-element -->
+
+                <!-- Start::header-element -->
+                <div class="header-element">
+                    <!-- Start::header-link -->
+                    <a aria-label="anchor" href="javascript:void(0);" class="sidemenu-toggle header-link">
+                        <span class="open-toggle">
+                            <i class="ri-menu-3-line text-xl"></i>
+                        </span>
+                    </a>
+                    <!-- End::header-link -->
+                </div>
+                <!-- End::header-element -->
+
+            </div>
+            <!-- End::header-content-left -->
+
+            <!-- Start::header-content-right -->
+            <div class="header-content-right">
+
+                <!-- Start::header-element -->
+                <div class="header-element !items-center">
+                    <!-- Start::header-link|switcher-icon -->
+                    <div class="lg:hidden flex items-center space-x-2 rtl:space-x-reverse">
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="ti-btn ti-btn-primary !m-0">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="ti-btn ti-btn-primary !m-0">Log in</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ti-btn ti-btn-secondary !m-0">Register</a>
+                            @endif
+                        @endauth
+                        <a aria-label="anchor" href="javascript:void(0);" class="ti-btn m-0 p-2 px-3 ti-btn-success"
+                        data-hs-overlay="#hs-overlay-switcher"><i class="ri-settings-3-line animate-spin-slow"></i></a>
+                    </div>
+                    <!-- End::header-link|switcher-icon -->
+                </div>
+                <!-- End::header-element -->
+
+            </div>
+            <!-- End::header-content-right -->
+
+        </div>
+        <!-- End::main-header-container -->
+
+        </header>
+       <!-- End::Header -->
+
+        <!-- Start::app-sidebar -->
+        <aside class="app-sidebar sticky !top-0" id="sidebar">
+            <div class="container-xl !p-0">
+                <!-- Start::main-sidebar -->
+                <div class="main-sidebar">
+                    <!-- Start::nav -->
+                    <nav class="main-menu-container nav nav-pills flex-column sub-open">
+                        <div class="landing-logo-container my-auto hidden lg:block">
+                            <div class="responsive-logo">
+                                <a class="responsive-logo-light" href="{{ url('/') }}" aria-label="Brand"><img
+                                        src="{{ asset('backend/assets/images/brand-logos/desktop-logo.png') }}" alt="logo"
+                                        class="mx-auto h-[2rem]"></a>
+                                <a class="responsive-logo-dark" href="{{ url('/') }}" aria-label="Brand"><img
+                                        src="{{ asset('backend/assets/images/brand-logos/desktop-white.png') }}" alt="logo"
+                                        class="mx-auto h-[2rem]"></a>
+                            </div>
+                        </div>
+                        <div class="slide-left hidden" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"> <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path> </svg></div>
+                        <ul class="main-menu">
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a class="side-menu__item" href="#home">
+                                    <span class="side-menu__label">Home</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                             <!-- Start::slide -->
+                             <li class="slide">
+                                <a href="#features" class="side-menu__item">
+                                    <span class="side-menu__label">Features</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#about" class="side-menu__item">
+                                    <span class="side-menu__label">About</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide has-sub">
+                                <a href="javascript:void(0);" class="side-menu__item">
+                                    <span class="side-menu__label me-2">More</span>
+                                    <i class="fe fe-chevron-right side-menu__angle op-8"></i>
+                                </a>
+                                <ul class="slide-menu child1">
+                                    <li class="slide">
+                                        <a href="#statistics" class="side-menu__item">Statistics</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="#our-mission" class="side-menu__item">Our Mission</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="#testimonials" class="side-menu__item">Testimonials</a>
+                                    </li>
+                                    <li class="slide has-sub">
+                                        <a href="javascript:void(0);" class="side-menu__item">Level-2
+                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                        <ul class="slide-menu child2">
+                                            <li class="slide">
+                                                <a href="javascript:void(0);" class="side-menu__item">Level-2-1</a>
+                                            </li>
+                                            <li class="slide has-sub">
+                                                <a href="javascript:void(0);" class="side-menu__item">Level-2-2
+                                                    <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                                <ul class="slide-menu child3">
+                                                    <li class="slide">
+                                                        <a href="javascript:void(0);"
+                                                            class="side-menu__item">Level-2-2-1</a>
+                                                    </li>
+                                                    <li class="slide has-sub">
+                                                        <a href="javascript:void(0);"
+                                                            class="side-menu__item">Level-2-2-2</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#pricing" class="side-menu__item">
+                                    <span class="side-menu__label">Pricing</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#testimonials" class="side-menu__item">
+                                    <span class="side-menu__label">Clients</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#faq" class="side-menu__item">
+                                    <span class="side-menu__label">Faq's</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#contact" class="side-menu__item">
+                                    <span class="side-menu__label">Contact</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+
+                        </ul>
+                        <div class="slide-right hidden" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"> <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path> </svg></div>
+                        <div class="lg:flex hidden space-x-2 rtl:space-x-reverse">
+                          @auth
+                            <a href="{{ url('/dashboard') }}" class="ti-btn w-[6.375rem] ti-btn-primary-full m-0 p-2">Dashboard</a>
+                          @else
+                            <a href="{{ route('login') }}" class="ti-btn w-[6.375rem] ti-btn-primary-full m-0 p-2">Log in</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ti-btn w-[6.375rem] ti-btn-secondary-full m-0 p-2">Register</a>
+                            @endif
+                          @endauth
+                          <a aria-label="anchor" href="javascript:void(0);" class="ti-btn m-0 p-2 px-3 ti-btn-light !font-medium"
+                            data-hs-overlay="#hs-overlay-switcher"><i class="ri-settings-3-line animate-spin-slow"></i></a>
+                        </div>
+                    </nav>
+                    <!-- End::nav -->
+
+                </div>
+                <!-- End::main-sidebar -->
+            </div>
+        </aside>
+        <!-- End::app-sidebar -->
+
+        <!-- Start::main-content -->
+        <div class="main-content !p-0 landing-main dark:text-defaulttextcolor/70">
+            <!-- Start::Home Content -->
+            <div class="landing-banner" id="home">
+                <section class="section !pt-[6rem]">
+                    <div class="container main-banner-container !pt-3 sm:!pt-[6rem]">
+                        <div class="grid grid-cols-12 gap-x-6">
+                            <div class="xxl:col-span-2 xl:col-span-2 lg:col-span-2 md:col-span-2 col-span-1"></div>
+                            <div class="xxl:col-span-8 xl:col-span-8 lg:col-span-8 md:col-span-8 col-span-10">
+                                <div class="py-4 pb-lg-0 text-center">
+                                    <div class="mb-3">
+                                        <h5 class="font-semibold text-fixed-white op-9">Manage Your Business</h5>
+                                    </div>
+                                    <p class="landing-banner-heading mb-3 cursor-default">Build Your Dream Project with Valex !</p>
+                                    <div class="fs-16 mb-5 text-fixed-white op-7"> Valex - Now you can use this admin
+                                        template to design stunning dashboards that will wow your target viewers or
+                                        users to no end. To create a good and well-structured dashboard, you need to
+                                        start from scratch with HTML, SCSS, CSS, and JS and with lots of coding, but by
+                                        using this Valex-Admin template.</div>
+                                    <a href="{{ url('/') }}" class="m-1 ti-btn ti-btn-primary-full">
+                                        Discover More
+                                        <i class="fe fe-eye ms-2 align-middle"></i>
+                                    </a>
+                                    <a href="{{ url('/') }}" class="m-1 ti-btn ti-btn-info-full">
+                                        Get Started
+                                        <i class="fe fe-arrow-right rtl:rotate-180 ms-2 rtl:ms-0 align-middle"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="xxl:col-span-2 xl:col-span-2 lg:col-span-2 md:col-span-2 col-span-1"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- End::Home Content -->
+
+            <!-- Start:: Section-2 -->
+            <section class="section text-defaulttextcolor dark:text-defaulttextcolor/70  section-bg " id="features">
+                <div class="container text-center position-relative">
+                    <p class="text-[0.75rem] font-semibold text-success mb-1">
+                        <span class="landing-section-heading">Features</span>
+                    </p>
+                    <div class="landing-title"></div>
+                    <h3 class="font-semibold mb-2">Valex Main Features</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-textmuted fs-15 mb-5 font-normal">We are proud to have top class clients and
+                                customers,which motivates us to work more on projects.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12 gap-x-6 justify-center">
+                        <div class="xl:col-span-12 col-span-12">
+                            <div class="grid grid-cols-12 gap-x-6 justify-evenly">
+                                <div class="xl:col-span-3 lg:col-span-6 md:col-span-6 sm:col-span-6 col-span-12 mb-4">
+                                    <div class="card rounded-sm bg-white dark:bg-bodybg features main-features main-features-4 p-6 active"
+                                        data-wow-delay="0.1s">
+                                        <div class="bg-img mb-2">
+                                            <svg width="50" class="inline-flex" height="50"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+                                                <circle cx="64" cy="64" r="64" fill="#42A3DB"></circle>
+                                                <path fill="#347CBE"
+                                                    d="M85.5 26.6 66.1 61 33.3 98.6 62.6 128H64c33.7 0 61.3-26 63.8-59.1L85.5 26.6z">
+                                                </path>
+                                                <path fill="#CD2F30"
+                                                    d="M73.1 57.7h-16c3.6 18.7 11.1 36.6 22.1 52.5.3-5 1-9.8 1.8-14.5 4.6 1.3 9.2 2.3 13.7 3-9.7-12.2-17-26.1-21.6-41z">
+                                                </path>
+                                                <path fill="#F04D45"
+                                                    d="M54.9 57.7c-4.6 15-11.9 28.9-21.6 40.9 4.5-.7 9.1-1.7 13.7-3 .9 4.7 1.5 9.5 1.8 14.5 11-15.9 18.4-33.8 22.1-52.5h-16z">
+                                                </path>
+                                                <path fill="#FFF"
+                                                    d="M93.5 52c1.8-1.8 1.8-4.7 0-6.5-1.3-1.3-1.7-3.3-1-5 1-2.4-.1-5-2.5-6-1.7-.7-2.8-2.4-2.8-4.3 0-2.5-2.1-4.6-4.6-4.6-1.9 0-3.5-1.1-4.3-2.8-1-2.4-3.7-3.5-6-2.5-1.7.7-3.7.3-5-1-1.8-1.8-4.7-1.8-6.5 0-1.3 1.3-3.3 1.7-5 1-2.4-1-5 .1-6 2.5-.7 1.7-2.4 2.8-4.3 2.8-2.5 0-4.6 2.1-4.6 4.6 0 1.9-1.1 3.5-2.8 4.3-2.4 1-3.5 3.7-2.5 6 .7 1.7.3 3.7-1 5-1.8 1.8-1.8 4.7 0 6.5 1.3 1.3 1.7 3.3 1 5-1 2.4.1 5 2.5 6 1.7.7 2.8 2.4 2.8 4.3 0 2.5 2.1 4.6 4.6 4.6 1.9 0 3.5 1.1 4.3 2.8 1 2.4 3.7 3.5 6 2.5 1.7-.7 3.7-.3 5 1 1.8 1.8 4.7 1.8 6.5 0 1.3-1.3 3.3-1.7 5-1 2.4 1 5-.1 6-2.5.7-1.7 2.4-2.8 4.3-2.8 2.5 0 4.6-2.1 4.6-4.6 0-1.9 1.1-3.5 2.8-4.3 2.4-1 3.5-3.7 2.5-6-.7-1.7-.3-3.7 1-5z">
+                                                </path>
+                                                <path fill="#FFCD0A"
+                                                    d="M64 70.8c-12.2 0-22.1-9.9-22.1-22.1 0-12.2 9.9-22.1 22.1-22.1 12.2 0 22.1 9.9 22.1 22.1 0 12.2-9.9 22.1-22.1 22.1z">
+                                                </path>
+                                                <path fill="#FFF"
+                                                    d="M59.9 61c-.6 0-1.1-.2-1.5-.7l-8.3-9.2c-.7-.8-.7-2.1.1-2.8.8-.7 2.1-.7 2.8.1l6.7 7.5 15.1-18.8c.7-.9 2-1 2.8-.3.9.7 1 2 .3 2.8L61.4 60.2c-.3.5-.9.8-1.5.8z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-bold">Quality &amp; Clean Code</h5>
+                                            <p class="mb-0">The Valex admin code is maintained very cleanly and
+                                                well-structured with proper comments. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="xl:col-span-3 lg:col-span-6 md:col-span-6 sm:col-span-6 col-span-12 mb-4">
+                                    <div
+                                        class="card rounded-sm bg-white dark:bg-bodybg features main-features main-features-2 wow p-6">
+                                        <div class="bg-img mb-2">
+                                            <svg width="50" class="inline-flex" height="50"
+                                                xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128"
+                                                viewBox="0 0 128 128">
+                                                <circle cx="64" cy="64" r="63.5" fill="#54C0EB"></circle>
+                                                <path fill="#84DBFF"
+                                                    d="M19.2,109c11.5,11.4,27.3,18.5,44.8,18.5c17.5,0,33.3-7.1,44.8-18.5H19.2z">
+                                                </path>
+                                                <rect width="19.6" height="10.4" x="54.2" y="92.7" fill="#FFF"></rect>
+                                                <rect width="19.6" height="2.3" x="54.2" y="92.7" fill="#E6E9EE"></rect>
+                                                <path fill="#E6E9EE"
+                                                    d="M82.2,109H45.8l0,0c0-3.3,2.7-6,6-6h24.4C79.5,103.1,82.2,105.7,82.2,109L82.2,109z">
+                                                </path>
+                                                <path fill="#324A5E"
+                                                    d="M103,92.7H25c-2.4,0-4.4-2-4.4-4.4V34.7c0-2.4,2-4.4,4.4-4.4h78c2.4,0,4.4,2,4.4,4.4v53.7   C107.4,90.7,105.4,92.7,103,92.7z">
+                                                </path>
+                                                <path fill="#FFF"
+                                                    d="M20.6,84v4.4c0,2.4,1.9,4.3,4.3,4.3H103c2.4,0,4.3-1.9,4.3-4.3V84H20.6z">
+                                                </path>
+                                                <rect width="80.3" height="46.9" x="23.9" y="33.4" fill="#FFF"></rect>
+                                                <circle cx="100.3" cy="88.3" r="2" fill="#FF7058"></circle>
+                                                <circle cx="94.7" cy="88.3" r="2" fill="#4CDBC4"></circle>
+                                                <circle cx="89.1" cy="88.3" r="2" fill="#54C0EB"></circle>
+                                                <rect width="9.7" height="27.7" x="32.3" y="46.7" fill="#ACB3BA"></rect>
+                                                <rect width="9.7" height="15.8" x="45.7" y="58.7" fill="#4CDBC4"></rect>
+                                                <rect width="9.7" height="23.1" x="59.1" y="51.3" fill="#FFD05B"></rect>
+                                                <rect width="9.7" height="35.7" x="72.6" y="38.7" fill="#84DBFF"></rect>
+                                                <rect width="9.7" height="8.1" x="86" y="66.3" fill="#FF7058"></rect>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-bold">Multiple Demos</h5>
+                                            <p class="mb-0"> We included multiple demos, preview video, and screen shots
+                                                to give a quick overview of our Valex admin template.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="xl:col-span-3 lg:col-span-6 md:col-span-6 sm:col-span-6 col-span-12 mb-4">
+                                    <div
+                                        class="card rounded-sm bg-white dark:bg-bodybg features main-features main-features-3 wow p-6">
+                                        <div class="bg-img mb-2">
+                                            <svg width="50" class="inline-flex" height="50"
+                                                xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128"
+                                                viewBox="0 0 128 128">
+                                                <circle cx="64" cy="64" r="63.5" fill="#54C0EB"></circle>
+                                                <path fill="#FFF"
+                                                    d="M42.2,96H23.6c-1.6,0-2.8-1.3-2.8-2.8V34.8c0-1.6,1.3-2.8,2.8-2.8h18.6c1.6,0,2.8,1.3,2.8,2.8v58.3   C45.1,94.7,43.8,96,42.2,96z">
+                                                </path>
+                                                <rect width="18.7" height="36.8" x="23.6" y="35.8" fill="#4CDBC4">
+                                                </rect>
+                                                <circle cx="32.9" cy="83.9" r="7.2" fill="#E6E9EE"></circle>
+                                                <circle cx="32.9" cy="83.9" r="5" fill="#324A5E"></circle>
+                                                <path fill="#FFF"
+                                                    d="M68.8,96H50.2c-1.6,0-2.8-1.3-2.8-2.8V34.8c0-1.6,1.3-2.8,2.8-2.8h18.6c1.6,0,2.8,1.3,2.8,2.8v58.3   C71.6,94.7,70.4,96,68.8,96z">
+                                                </path>
+                                                <rect width="18.7" height="36.8" x="50.1" y="35.8" fill="#FF7058">
+                                                </rect>
+                                                <circle cx="59.5" cy="83.9" r="7.2" fill="#E6E9EE"></circle>
+                                                <circle cx="59.5" cy="83.9" r="5" fill="#324A5E"></circle>
+                                                <path fill="#FFF"
+                                                    d="M109,92.7l-18,4.6c-1.5,0.4-3.1-0.5-3.5-2.1L73.2,38.7c-0.4-1.5,0.5-3.1,2.1-3.5l18-4.6   c1.5-0.4,3.1,0.5,3.5,2.1l14.3,56.5C111.5,90.8,110.6,92.4,109,92.7z">
+                                                </path>
+                                                <rect width="18.7" height="36.8" x="80.4" y="36.1" fill="#FFD05B"
+                                                    transform="rotate(-14.193 89.778 54.551)"></rect>
+                                                <circle cx="97" cy="83.2" r="7.2" fill="#E6E9EE"></circle>
+                                                <circle cx="97" cy="83.2" r="5" fill="#324A5E"></circle>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-bold">Widgets</h5>
+                                            <p class="mb-0"> 30+ widgets are included in this template. Please check out
+                                                the best option that suits you. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="xl:col-span-3 lg:col-span-6 md:col-span-6 sm:col-span-6 col-span-12 mb-4">
+                                    <div
+                                        class="card rounded-sm bg-white dark:bg-bodybg features main-features main-features-4 wow fadeInUp reveal revealleft p-6">
+                                        <div class="bg-img mb-2">
+                                            <svg width="50" class="inline-flex" height="50"
+                                                xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128"
+                                                viewBox="0 0 128 128">
+                                                <circle cx="64" cy="64" r="63.5" fill="#FFD05B"></circle>
+                                                <path fill="#FFF"
+                                                    d="M30,103.8l0-79.7c0-1.8,1.5-3.3,3.3-3.3h50.1l0,11.4c0,1.8,1.5,3.3,3.3,3.3H98l0,68.3   c0,1.8-1.5,3.3-3.3,3.3H33.3C31.5,107.1,30,105.6,30,103.8z">
+                                                </path>
+                                                <path fill="#E6E9EE"
+                                                    d="M83.3,20.9h11.4c1.8,0,3.3,1.5,3.3,3.3l0,11.4H86.6c-1.8,0-3.3-1.5-3.3-3.3L83.3,20.9z">
+                                                </path>
+                                                <path fill="#CED5E0"
+                                                    d="M83.3,20.9h11.4c1.8,0,3.3,1.5,3.3,3.3l0,11.4L83.3,20.9z"></path>
+                                                <rect width="54.6" height="2.4" x="36.7" y="50.7" fill="#E6E9EE"></rect>
+                                                <rect width="54.6" height="2.4" x="36.7" y="58.2" fill="#E6E9EE"></rect>
+                                                <rect width="54.6" height="2.4" x="36.7" y="65.8" fill="#E6E9EE"></rect>
+                                                <rect width="54.6" height="2.4" x="36.7" y="73.4" fill="#E6E9EE"></rect>
+                                                <rect width="23.5" height="2.4" x="67.8" y="80.9" fill="#84DBFF"></rect>
+                                                <rect width="23.5" height="2.4" x="67.8" y="88.5" fill="#84DBFF"></rect>
+                                                <rect width="54.6" height="2.4" x="36.7" y="43.1" fill="#E6E9EE"></rect>
+                                                <rect width="29.6" height="2.4" x="36.7" y="35.6" fill="#84DBFF"></rect>
+                                                <path fill="#FF7058"
+                                                    d="M41.1,83.3c-4.4,4.4-4.4,11.5,0,15.9s11.5,4.4,15.9,0c4.4-4.4,4.4-11.5,0-15.9   C52.6,78.9,45.5,78.9,41.1,83.3z M41.9,84.1c3.4-3.4,8.7-3.8,12.6-1.3l-1.6,1.6c-3-1.7-6.9-1.3-9.5,1.2c-2.6,2.6-3,6.5-1.2,9.5   l-1.6,1.6C38.1,92.8,38.5,87.5,41.9,84.1z M43.1,94.3c-1.3-2.5-0.9-5.7,1.2-7.7c2.1-2.1,5.2-2.5,7.7-1.2L43.1,94.3z M54.9,88.2   c1.3,2.5,0.9,5.7-1.2,7.7c-2.1,2.1-5.2,2.5-7.7,1.2L54.9,88.2z M56.1,98.3c-3.4,3.4-8.7,3.8-12.6,1.3l1.6-1.6   c3,1.7,6.9,1.3,9.5-1.2c2.6-2.6,3-6.5,1.2-9.5l1.6-1.6C60,89.6,59.5,94.9,56.1,98.3z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-bold">Validation Forms</h5>
+                                            <p class="mb-0"> Different types of “Form Validation” are implemented in
+                                                this Valex admin template and used strict validation rules. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-2 -->
+
+            <!-- Start:: Section-5 -->
+            <section class="section landing-Features text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                id="features">
+                <div class="container text-center">
+                    <p class="text-[0.75rem] font-semibold text-success mb-1"><span
+                            class="landing-section-heading">Features</span></p>
+                    <h3 class="font-semibold mb-2 !text-white">Features Used in Valex</h3>
+                    <div>
+                        <div class="xl:col-span-7 col-span-12">
+                            <p class="text-white opacity-[0.8] text-[0.9375rem] mb-4 font-normal">Some of the reviews
+                                our clients gave which brings motivation to work for future projects.</p>
+                        </div>
+                    </div>
+                    <div class="text-start">
+                        <div class="justify-center">
+                            <div class="">
+                                <div class="feature-logos sm:mt-[3rem] flex-wrap">
+                                    <div class="sm:ms-[3rem] ms-2 text-center">
+                                        <img src="{{ asset('backend/assets/images/media/landing/web/1.png') }}" alt="image"
+                                            class="featur-icon">
+                                        <h5 class="mt-3 text-white text-[1.25rem] ">Tailwind</h5>
+                                    </div>
+                                    <div class="sm:ms-[3rem] ms-2 text-center">
+                                        <img src="{{ asset('backend/assets/images/media/landing/web/2.png') }}" alt="image"
+                                            class="featur-icon">
+                                        <h5 class="mt-3 text-white text-[1.25rem] ">HTML5</h5>
+                                    </div>
+                                    <div class="sm:ms-[3rem] ms-2 text-center">
+                                        <img src="{{ asset('backend/assets/images/media/landing/web/3.png') }}" alt="image"
+                                            class="featur-icon">
+                                        <h5 class="mt-3 text-white text-[1.25rem] ">Sass</h5>
+                                    </div>
+                                    <div class="sm:ms-[3rem] ms-2 text-center">
+                                        <img src="{{ asset('backend/assets/images/media/landing/web/4.png') }}" alt="image"
+                                            class="featur-icon">
+                                        <h5 class="ms-3 text-white text-[1.25rem] ">Gulp</h5>
+                                    </div>
+                                    <div class="sm:ms-[3rem] ms-2 text-center">
+                                        <img src="{{ asset('backend/assets/images/media/landing/web/5.png') }}" alt="image"
+                                            class="featur-icon">
+                                        <h5 class="ms-3 text-white text-[1.25rem] ">NPM</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mt-4"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-5 -->
+
+            <!-- Start:: Section-3 -->
+            <section class="section bg-white dark:bg-bodybg text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                id="about">
+                <div class="container text-center">
+                    <p class="text-[0.75rem] font-semibold text-success mb-1"><span class="landing-section-heading">Our
+                            Mission</span>
+                    </p>
+                    <div class="landing-title"></div>
+                    <h3 class="font-semibold mb-2"> Our mission is to make work meaningful. </h3>
+                    <p class="text-textmuted fs-15 mb-3 font-normal">Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Ut est dui, rutrum in nulla eu,</p>
+                    <div class="grid grid-cols-12 justify-center items-center mx-0">
+                        <div class="xxl:col-span-5 xl:col-span-5 lg:col-span-5 col-span-12 text-center">
+                            <img src="{{ asset('backend/assets/images/authentication/9.png') }}" alt="" class="img-fluid inline-flex">
+                        </div>
+                        <div
+                            class="xxl:col-span-7 xl:col-span-7 lg:col-span-7 col-span-12 pt-5 pb-0 px-lg-2 px-5 text-start">
+                            <h4 class="text-lg-start font-medium mb-4">We are a creative agency with a passion for
+                                design. </h4>
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-12 md:col-span-12">
+                                    <div class="flex mb-2">
+                                        <span>
+                                            <i class='bx bxs-badge-check text-primary text-[1.125rem]'></i>
+                                        </span>
+                                        <div class="ms-2">
+                                            <h6 class="font-medium mb-0">Quality & Clean Code </h6>
+                                            <p class=" text-textmuted mb-3"> The Valex admin code is maintained very
+                                                cleanly and well-structured with proper comments. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-12 md:col-span-12">
+                                    <div class="flex mb-2">
+                                        <span>
+                                            <i class='bx bxs-badge-check text-primary text-[1.125rem]'></i>
+                                        </span>
+                                        <div class="ms-2">
+                                            <h6 class="font-medium mb-0">Well Documented</h6>
+                                            <p class=" text-textmuted mb-3"> The documentation provides clear-cut
+                                                material for the Valex admin template. The documentation is explained or
+                                                instructed in such a way that every user can understand. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-12 md:col-span-12">
+                                    <div class="flex mb-2">
+                                        <span>
+                                            <i class='bx bxs-badge-check text-primary text-[1.125rem]'></i>
+                                        </span>
+                                        <div class="ms-2">
+                                            <h6 class="font-medium mb-0">Switch Easily From One Color to Another Color
+                                                style</h6>
+                                            <p class=" text-textmuted">lorem ipsum, dolor sit var ameto condesetrat
+                                                aiatel varen or damsenlel verman code Lorem ipsum, dolor sit amet
+                                                consectetur </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-3 -->
+
+            <section
+                class="section  dark:!bg-black/10 section-bg text-defaulttextcolor dark:text-defaulttextcolor/70"
+                id="statistics">
+                <div class="container text-center position-relative">
+                    <p class="text-[0.75rem] font-semibold text-success mb-1"><span
+                            class="landing-section-heading">STATISTICS</span></p>
+                    <h3 class="font-semibold mb-2 text-defaulttextcolor dark:text-defaulttextcolor/70 ">More than 120+
+                        projects completed.</h3>
+                    <div class="">
+                        <div class="xl:col-span-7 col-span-12">
+                            <p class="text-[#8c9097] text-[0.9375rem] mb-5 font-normal">We are proud to have top class
+                                clients and customers,which motivates us to work more on projects.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12 gap-x-6 container">
+                        <div class="xl:col-span-1"></div>
+                        <div class="xl:col-span-2 lg:col-span-4 md:col-span-6 sm:col-span-12 col-span-12 mb-3">
+                            <div
+                                class="p-4 text-center !rounded-sm bg-white dark:bg-bodybg border dark:border-defaultborder/10">
+                                <span class="mb-4 avatar avatar-lg avatar-rounded bg-primary/10 !text-primary">
+                                    <i class='text-[1.5rem] bx bx-spreadsheet'></i>
+                                </span>
+                                <h3 class="font-semibold mb-0 text-dark">120+</h3>
+                                <p class="mb-1 text-[0.875rem] opacity-[0.7] text-[#8c9097] ">
+                                    Projects
+                                </p>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-2 lg:col-span-4 md:col-span-6 sm:col-span-12 col-span-12 mb-3">
+                            <div
+                                class="p-4 text-center !rounded-sm !bg-white dark:!bg-bodybg border dark:border-defaultborder/10">
+                                <span class="mb-4 avatar avatar-lg avatar-rounded bg-primary/10 !text-primary">
+                                    <i class='text-[1.5rem] bx bx-user-plus'></i>
+                                </span>
+                                <h3 class="font-semibold mb-0 text-dark">20K+</h3>
+                                <p class="mb-1 text-[0.875rem] opacity-[0.7] text-[#8c9097] ">
+                                    Clients
+                                </p>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-2 lg:col-span-4 md:col-span-6 sm:col-span-12 col-span-12 mb-3">
+                            <div
+                                class="p-4 text-center !rounded-sm !bg-white dark:!bg-bodybg border dark:border-defaultborder/10">
+                                <span class="mb-4 avatar avatar-lg avatar-rounded bg-primary/10 !text-primary">
+                                    <i class='text-[1.5rem] bx bx-money'></i>
+                                </span>
+                                <h3 class="font-semibold mb-0 text-dark">$45.8M</h3>
+                                <p class="mb-1 text-[0.875rem] opacity-[0.7] text-[#8c9097] ">
+                                    Income Earned
+                                </p>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-2 lg:col-span-4 md:col-span-6 sm:col-span-12 col-span-12 mb-3">
+                            <div
+                                class="p-4 text-center !rounded-sm !bg-white dark:!bg-bodybg  border dark:border-defaultborder/10">
+                                <span class="mb-4 avatar avatar-lg avatar-rounded bg-primary/10 !text-primary">
+                                    <i class='text-[1.5rem] bx bx-user-circle'></i>
+                                </span>
+                                <h3 class="font-semibold mb-0 text-dark">854</h3>
+                                <p class="mb-1 text-[0.875rem] opacity-[0.7] text-[#8c9097] ">
+                                    Employees
+                                </p>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-2 lg:col-span-4 md:col-span-6 sm:col-span-12 col-span-12 mb-3">
+                            <div
+                                class="p-4 text-center !rounded-sm bg-white dark:!bg-bodybg  border dark:border-defaultborder/10">
+                                <span class="mb-4 avatar avatar-lg avatar-rounded bg-primary/10 !text-primary">
+                                    <i class='text-[1.5rem] bx bx-calendar'></i>
+                                </span>
+                                <h3 class="font-semibold mb-0 text-dark">5+</h3>
+                                <p class="mb-1 text-[0.875rem] opacity-[0.7] text-[#8c9097] ">
+                                    Years of Experience
+                                </p>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-1"></div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Start:: Section-8 -->
+            <section class="section bg-white dark:bg-bodybg text-defaulttextcolor dark:text-defaulttextcolor/70 text-[0.813rem] " id="pricing">
+                <div class="container text-center">
+                    <p class="text-[0.75rem] font-semibold text-success mb-1"><span
+                            class="landing-section-heading">PRICING</span></p>
+                    <h3 class="font-semibold mb-2">valex comes with most affordable pricing range.</h3>
+                    <div class="row justify-center">
+                        <div class="col-xl-9">
+                            <p class="text-[#8c9097] text-[0.9375rem] mb-5 font-normal">Our plans are most affordable
+                                and are mainly placed by focussing every category in the sector even basic plan helps
+                                better.</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mb-4">
+                        <nav class="bg-primary/10 p-4 rounded-md" aria-label="Tabs" role="tablist">
+                            <a class="hs-tab-active:bg-primary hs-tab-active:text-white text-primary py-2 px-4  text-sm font-medium text-center rounded-sm hover:text-primary active"
+                                id="pm-item" data-hs-tab="#pricing-monthly-pane" aria-controls="pricing-monthly-pane">
+                                Monthly
+                            </a>
+                            <a class="hs-tab-active:bg-primary hs-tab-active:text-white text-primary py-2 px-4 text-sm font-medium text-center  rounded-sm hover:text-primary "
+                                id="py-item" data-hs-tab="#pricing-yearly-pane" aria-controls="pricing-yearly-pane">
+                                Yearly
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="box overflow-hidden !shadow-none justify-center">
+                        <div class="box-body !border-0 !p-0">
+                            <div class="tab-content !border-0" id="myTabContent">
+                                <div class="tab-pane !border-0 show active !p-0 dark:!border-defaultborder/10"
+                                    id="pricing-monthly-pane" aria-labelledby="pm-item" role="tabpanel"
+                                    aria-labelledby="pricing-monthly" tabindex="0">
+                                    <div class="grid grid-cols-12 justify-center">
+                                        <div
+                                            class="xxl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-12 col-span-12 border-e  dark:border-e-defaultborder/10">
+                                            <div class="p-4">
+                                                <h6 class="font-semibold text-center text-[1rem]">BASIC</h6>
+                                                <div class="py-4 flex items-center justify-center">
+                                                    <div class="pricing-svg1">
+                                                        <i class="bi bi-tags"></i>
+                                                    </div>
+                                                    <div class="text-end ms-[3rem]">
+                                                        <p class="text-[1.5625rem] font-semibold mb-0">$199</p>
+                                                        <p class="text-[#8c9097] text-[0.6875rem] font-semibold mb-0">
+                                                            per month</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center text-[0.75rem] px-4 pt-4 mb-0">
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Storage Capacity<span
+                                                                class="badge bg-light text-default ms-1">1Tb</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Daily Updates<span
+                                                                class="badge bg-light text-default ms-1">Unlimited</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Online Support</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Visitors Monitoring<span
+                                                                class="badge bg-light text-default ms-1">24/7</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">2 Free Domains</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Money Back Guarentee</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="grid">
+                                                    <button class="ti-btn ti-btn-primary !font-[500]">Get
+                                                        Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="xxl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-12 col-span-12 border-e dark:border-e-defaultborder/10-e  dark:border-defaultborder/10">
+                                            <div class="p-4">
+                                                <h6 class="font-semibold text-center text-[1rem]">ADVANCED</h6>
+                                                <div class="py-4 flex items-center justify-center">
+                                                    <div class="pricing-svg1">
+                                                        <i class="bi bi-hand-thumbs-up"></i> 
+                                                    </div>
+                                                    <div class="text-end ms-[3rem]">
+                                                        <p class="text-[1.5625rem] font-semibold mb-0">$499</p>
+                                                        <p class="text-[#8c9097] text-[0.6875rem] font-semibold mb-0">
+                                                            per month</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center text-[0.75rem] px-4 pt-4 mb-0">
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Storage Capacity<span
+                                                                class="badge bg-light text-default ms-1">5Tb</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Daily Updates<span
+                                                                class="badge bg-light text-default ms-1">Unlimited</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Online Support</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Visitors Monitoring<span
+                                                                class="badge bg-light text-default ms-1">24/7</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">10 Free Domains</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Money Back Guarentee</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="grid">
+                                                    <button class="ti-btn ti-btn-primary !font-[500]">Get
+                                                        Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="xxl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-12 col-span-12">
+                                            <div class="p-4 pricing-offer overflow-hidden">
+                                                <span class="pricing-offer-details shadow">
+                                                    <span class="font-semibold">10%</span> <span
+                                                        class="text-[0.625rem] op-8 ms-1">Off</span>
+                                                </span>
+                                                <h6 class="font-semibold text-center text-[1rem]">PREMIUM</h6>
+                                                <div class="py-4 flex items-center justify-center">
+                                                    <div class="pricing-svg1">
+                                                        <i class="bi bi-gem"></i> 
+                                                    </div>
+                                                    <div class="text-end ms-[3rem]">
+                                                        <p class="text-[1.5625rem] font-semibold mb-0 !text-primary">
+                                                            $1,299</p>
+                                                        <p class="text-[#8c9097] text-[0.6875rem] font-semibold mb-0">
+                                                            per month</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center text-[0.75rem] px-4 pt-4 mb-0">
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Storage Capacity<span
+                                                                class="badge bg-light text-default ms-1">10Tb</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Daily Updates<span
+                                                                class="badge bg-light text-default ms-1">Unlimited</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Online Support</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Visitors Monitoring<span
+                                                                class="badge bg-light text-default ms-1">24/7</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">30 Free Domains</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Money Back Guarentee</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="grid">
+                                                    <button class="ti-btn bg-primary text-white !font-[500] shadow">Get
+                                                        Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane !border-0 !p-0  dark:border-defaultborder/10 hidden"
+                                    id="pricing-yearly-pane" aria-labelledby="py-item" role="tabpanel"
+                                    aria-labelledby="pricing-yearly" tabindex="0">
+                                    <div class="grid grid-cols-12">
+                                        <div
+                                            class="xxl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-12 col-span-12 border-e dark:border-e-defaultborder/10-end  dark:border-defaultborder/10">
+                                            <div class="p-4">
+                                                <h6 class="font-semibold text-center text-[1rem]">BASIC</h6>
+                                                <div class="py-4 flex items-center justify-center">
+                                                    <div class="pricing-svg1">
+                                                        <i class="bi bi-tags"></i>
+                                                    </div>
+                                                    <div class="text-end ms-[3rem]">
+                                                        <p class="text-[1.5625rem] font-semibold mb-0">$1,499</p>
+                                                        <p class="text-[#8c9097] text-[0.6875rem] font-semibold mb-0">
+                                                            per Year</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center text-[0.75rem] px-4 pt-4 mb-0">
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Storage Capacity<span
+                                                                class="badge bg-light text-default ms-1">1Tb</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Daily Updates<span
+                                                                class="badge bg-light text-default ms-1">Unlimited</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Online Support</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Visitors Monitoring<span
+                                                                class="badge bg-light text-default ms-1">24/7</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">2 Free Domains</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Money Back Guarentee</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="grid">
+                                                    <button class="ti-btn ti-btn-primary !font-[500]">Get
+                                                        Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="xxl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-12 col-span-12 border-e dark:border-e-defaultborder/10-end  dark:border-defaultborder/10">
+                                            <div class="p-4">
+                                                <h6 class="font-semibold text-center text-[1rem]">ADVANCED</h6>
+                                                <div class="py-4 flex items-center justify-center">
+                                                    <div class="pricing-svg1">
+                                                        <i class="bi bi-hand-thumbs-up"></i> 
+                                                    </div>
+                                                    <div class="text-end ms-[3rem]">
+                                                        <p class="text-[1.5625rem] font-semibold mb-0">$5,999</p>
+                                                        <p class="text-[#8c9097] text-[0.6875rem] font-semibold mb-0">
+                                                            per year</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center text-[0.75rem] px-4 pt-4 mb-0">
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Storage Capacity<span
+                                                                class="badge bg-light text-default ms-1">5Tb</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Daily Updates<span
+                                                                class="badge bg-light text-default ms-1">Unlimited</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Online Support</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Visitors Monitoring<span
+                                                                class="badge bg-light text-default ms-1">24/7</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">10 Free Domains</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Money Back Guarentee</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="grid">
+                                                    <button class="ti-btn ti-btn-primary !font-[500]">Get
+                                                        Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="xxl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-12 col-span-12">
+                                            <div class="p-4 pricing-offer overflow-hidden">
+                                                <span class="pricing-offer-details shadow">
+                                                    <span class="font-semibold">10%</span> <span
+                                                        class="text-[0.625rem] op-8 ms-1">Off</span>
+                                                </span>
+                                                <h6 class="font-semibold text-center text-[1rem]">PREMIUM</h6>
+                                                <div class="py-4 flex items-center justify-center">
+                                                    <div class="pricing-svg1">
+                                                        <i class="bi bi-gem"></i> 
+                                                    </div>
+                                                    <div class="text-end ms-[3rem]">
+                                                        <p class="text-[1.5625rem] font-semibold mb-0 !text-primary">
+                                                            $11,499</p>
+                                                        <p class="text-[#8c9097] text-[0.6875rem] font-semibold mb-0">
+                                                            per year</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center text-[0.75rem] px-4 pt-4 mb-0">
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Storage Capacity<span
+                                                                class="badge bg-light text-default ms-1">10Tb</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Daily Updates<span
+                                                                class="badge bg-light text-default ms-1">Unlimited</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Online Support</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Visitors Monitoring<span
+                                                                class="badge bg-light text-default ms-1">24/7</span></span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">30 Free Domains</span>
+                                                    </li>
+                                                    <li class="mb-4">
+                                                        <span class="text-[#8c9097]">Money Back Guarentee</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="grid">
+                                                    <button class="ti-btn bg-primary text-white !font-[500] shadow">Get
+                                                        Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-8 -->
+
+
+            <!-- Start:: Section-6 -->
+            <section class="section landing-testimonials " id="testimonials">
+                <div class="container text-center">
+                    <p class="fs-12 font-semibold text-success mb-1"><span
+                            class="landing-section-heading">TESTIMONIALS</span>
+                    </p>
+                    <div class="landing-title"></div>
+                    <h3 class="font-semibold text-defaulttextcolor dark:text-defaulttextcolor/70 mb-2">What People Are
+                        Saying About Our Product.</h3>
+                    <p class="text-muted fs-15 mb-5 font-normal">Some of the reviews our clients gave which brings
+                        motivation to work for future projects.</p>
+                    <div class="swiper pagination-dynamic text-start">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/11.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                Lorem ipsum dolor sit amet,
+                                                consectetur adipisicing elit. Quod eos id
+                                                officiis hic tenetur quae quaerat
+                                                ad velit ab. Lorem ipsum dolor sit amet.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Json Taylor</p>
+                                            <p class="mb-0 fs-11 text-muted">Web Developer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/15.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                Nulla in nunc eu justo varius bibendum ac quis metus. Phasellus varius
+                                                aliquam lorem quis sem vitae, pellentesque.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Harry Linson</p>
+                                            <p class="mb-0 fs-11 text-muted">CEO</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/9.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                In nec elit nec risus varius cursus vitae eget augue. Vestibulum
+                                                bibendum, diam nec elementum imperdiet mollis in lacinia vitae.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Mathew Brown</p>
+                                            <p class="mb-0 fs-11 text-muted">Project Manager</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/8.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                Phasellus varius aliquam lorem ut fringilla. Proin lobortis ipsum in
+                                                libero elementum rhoncus augue enim ac quam.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Ronne Gally</p>
+                                            <p class="mb-0 fs-11 text-muted">Backend Developer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/7.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                Vestibulum bibendum, diam nec elementum imperdiet, nisi odio mattis
+                                                metus, ac ullamcorper Cras nec aliquet sem.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Jim Carilett</p>
+                                            <p class="mb-0 fs-11 text-muted">UI Developer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/6.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                Nullam dignissim velit ac libero varius facilisis. Pellentesque habitant
+                                                morbi tristique senectus eget lorem metus.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Kami Johnson</p>
+                                            <p class="mb-0 fs-11 text-muted">Web Developer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/3.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                Sed dapibus risus eu nibh aliquet, et sodales libero vulputate. Nullam
+                                                lacinia diam sem Sed dapibus risus eu nib.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Marina Rotior</p>
+                                            <p class="mb-0 fs-11 text-muted">UI Designer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/2.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                Nullam ultrices sem ut gravida ultricies. Suspendisse vitae felis sit
+                                                amet dolor tempor lacinia Sed in lorem convallis, tempus nisi vel.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Elizabeth</p>
+                                            <p class="mb-0 fs-11 text-muted">Backend Developer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="box testimonial-card !shadow-none">
+                                    <div class="box-body">
+                                        <div class="testimonia text-center">
+                                            <span class="avatar avatar-xl avatar-rounded mb-1">
+                                                <img src="{{ asset('backend/assets/images/faces/1.jpg') }}" alt="">
+                                            </span>
+                                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                                <span class="text-warning d-block">
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-fill"></i>
+                                                    <i class="ri-star-half-fill"></i>
+                                                </span>
+                                            </div>
+                                            <p class="op-8 mb-4">
+                                                <i class="fa fa-quote-left fs-22 text-primary op-6 me-2"></i>
+                                                Curabitur auctor purus et laoreet molestie. Sed eleifend scelerisque
+                                                posuere. In ac vehicula turpis acinia diam sem aliquam lorem.
+                                            </p>
+                                            <p class="mb-0 font-semibold fs-16">Williamson</p>
+                                            <p class="mb-0 fs-11 text-muted">UI Developer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mt-4"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-6 -->
+
+
+            <!-- Start:: Section-9 -->
+            <section
+                class="section bg-[#f9fafb] section-bg text-defaulttextcolor dark:text-defaulttextcolor/70 text-[0.813rem]"
+                id="faq">
+                <div class="container text-center">
+                    <p class="text-[0.75rem] font-semibold text-success mb-1"><span
+                            class="landing-section-heading">F.A.Q</span></p>
+                    <h3 class="font-semibold mb-2">Frequently asked questions ?</h3>
+                    <div class="row justify-center">
+                        <div class="">
+                            <p class="text-[#8c9097] text-[0.9375rem] mb-5 font-normal">We have shared some of the most
+                                frequently asked questions to help you out.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12 gap-x-6">
+                        <div class="xl:col-span-6 col-span-12">
+                            <div class="accordion accordion-customicon1 accordion-primary accordions-items-seperate"
+                                id="accordionFAQ1">
+                                <div class="hs-accordion-group">
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border dark:border-defaultborder/10-white/10"
+                                        id="faq-one"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-one"> Where can I subscribe to your newsletter?
+                                            <svg class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-one"
+                                            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-one" style="height: 0px;">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border-defaultborder/10-white/10"
+                                        id="faq-two"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-two"> Where can in edit my address? <svg
+                                                class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-two"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-two" style="height: 0px;">
+                                            <div class="p-5  text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border-defaultborder/10-white/10"
+                                        id="faq-twenty"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-three"> What are your opening hours? <svg
+                                                class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-three"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-twenty" style="height: 0px;">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border-defaultborder/10-white/10"
+                                        id="faq-thirty"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-four"> Do I have the right to return an item?
+                                            <svg class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-four"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-thiery" style="height: 0px;">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border-defaultborder/10-white/10"
+                                        id="faq-three"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-five"> General Terms &amp; Conditions (GTC) <svg
+                                                class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-five"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-three" style="height: 0px;">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border-defaultborder/10-white/10"
+                                        id="faq-four"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-six"> Do I need to create an account to make an
+                                            order? <svg
+                                                class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-six"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-four" style="height: 0px;">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-6 col-span-12">
+                            <div class="accordion accordion-customicon1 accordion-primary accordions-items-seperate"
+                                id="accordionFAQ2">
+                                <div class="hs-accordion-group">
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border dark:border-defaultborder/10-white/10"
+                                        id="faq-five"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-seven"> General Terms &amp; Conditions (GTC)
+                                            <svg class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-seven"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-five">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border dark:border-defaultborder/10-white/10"
+                                        id="faq-six"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-eight"> Do I need to create an account to make
+                                            an order? <svg
+                                                class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-eight"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-six">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border dark:border-defaultborder/10-white/10"
+                                        id="faq-seven"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-nine"> Where can I subscribe to your newsletter?
+                                            <svg class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-nine"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-seven">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border dark:border-defaultborder/10-white/10"
+                                        id="faq-eight"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-ten"> Where can in edit my address? <svg
+                                                class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-ten"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-eight">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border dark:border-defaultborder/10-white/10"
+                                        id="faq-nine"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-eleven"> What are your opening hours? <svg
+                                                class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-eleven"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-nine">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hs-accordion bg-white dark:bg-bodybg border dark:border-defaultborder/10 mt-[0.5rem] rounded-sm dark:border dark:border-defaultborder/10-white/10"
+                                        id="faq-ten"> <button type="button"
+                                            class="hs-accordion-toggle hs-accordion-active:!text-primary hs-accordion-active:border dark:border-defaultborder/10-b hs-accordion-active:bg-primary/10   dark:border-defaultborder/10 dark:hs-accordion-active:border dark:border-defaultborder/10-white/10 justify-between inline-flex items-center w-full font-semibold text-start text-[0.85rem] transition py-3 px-4 dark:hs-accordion-active:!text-primary dark:text-gray-200 dark:hover:text-white/80"
+                                            aria-controls="faq-collapse-twelve"> Do I have the right to return an item?
+                                            <svg class="hs-accordion-active:hidden hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary block w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M8 15.36L8 2.35999" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round"></path>
+                                            </svg> <svg
+                                                class="hs-accordion-active:block hs-accordion-active:!text-primary hs-accordion-active:group-hover:!text-primary hidden w-3 h-3 text-gray-600 group-hover:text-defaulttextcolor dark:text-defaulttextcolor/70 "
+                                                width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 8.85999L14.5 8.85998" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round"></path>
+                                            </svg> </button>
+                                        <div id="faq-collapse-twelve"
+                                            class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+                                            aria-labelledby="faq-ten">
+                                            <div class="p-5 text-start">
+                                                <p class="text-defaulttextcolor dark:text-defaulttextcolor/70 ">
+                                                    <strong>This is the first item's accordion body.</strong> It is
+                                                    shown by default, until the collapse plugin adds the appropriate
+                                                    classes that we use to style each element. These classes control the
+                                                    overall appearance, as well as the showing and hiding via CSS
+                                                    transitions. You can modify any of this with custom CSS or
+                                                    overriding our default variables. It's also worth noting that just
+                                                    about any HTML can go within the <code>.accordion-body</code>,
+                                                    though the transition does limit overflow. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-9 -->
+
+            <!-- Start:: Section-10 -->
+            <section class="section text-defaulttextcolor dark:text-defaulttextcolor/70 text-[0.813rem]" id="contact">
+                <div class="container text-center">
+                    <p class="text-[0.75rem] font-semibold text-success mb-1"><span
+                            class="landing-section-heading">CONTACT US</span>
+                    </p>
+                    <div class="landing-title"></div>
+                    <h3 class="font-semibold mb-2">Have any questions ? We would love to hear from you.</h3>
+                    <div class="grid grid-cols-12 gap-x-6">
+                        <div class="xl:col-span-9 col-span-12">
+                            <p class="text-textmuted fs-15 mb-5 font-normal">You can contact us anytime regarding any
+                                queries or deals,dont hesitate to clear your doubts before trying our product.</p>
+                        </div>
+                    </div>
+                    <div class="text-start grid grid-cols-12 gap-x-6 justify-between">
+                        <div class="lg:col-span-4 col-span-12">
+                            <div class="card bg-white dark:bg-bodybg !shadow-none rounded-sm">
+                                <div class="box-body px-[3rem] py-[1.5rem]">
+                                    <div class="flex mb-3 mt-3">
+                                        <div class="contact-icon contact-icon-1  border !border-primary bg-primary/10 m-0">
+                                            <i class="fe fe-map-pin !text-primary text-[1.0625rem]"></i>
+                                        </div>
+                                        <div class="ms-3 text-start">
+                                            <h6 class="mb-1 font-medium">Main Branch</h6>
+                                            <p class="mb-4">San Francisco, CA </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex mb-3">
+                                        <div class="contact-icon contact-icon-2 border !border-danger bg-danger/10">
+                                            <i class="fe fe-mail !text-danger text-[1.0625rem]"></i>
+                                        </div>
+                                        <div class="ms-3 text-start">
+                                            <h6 class="mb-1 font-medium">
+                                                Email</h6>
+                                            <p class="mb-4">georgeme@abc.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex mb-3">
+                                        <div class="contact-icon contact-icon-3 border !border-success bg-success/10">
+                                            <i class="fe fe-headphones !text-success text-[1.0625rem]"></i>
+                                        </div>
+                                        <div class="ms-3 text-start">
+                                            <h6 class="mb-1 font-medium">
+                                                Contact</h6>
+                                            <p class="mb-4">+125 254
+                                                3562 </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex mb-2">
+                                        <div class="contact-icon contact-icon-4 border !border-warning bg-warning/10">
+                                            <i class="fe fe-airplay !text-warning text-[1.0625rem]"></i>
+                                        </div>
+                                        <div class="ms-3 text-start">
+                                            <h6 class="mb-1 font-medium">
+                                                Working Hours</h6>
+                                            <p class="mb-0">Mon -
+                                                Fri: 9am - 6pm</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-8 col-span-12">
+                            <div class="card bg-white dark:bg-bodybg !shadow-none rounded-sm">
+                                <div class="box-body px-[3rem] py-[2.4rem]">
+                                    <div class="grid grid-cols-12 gap-x-6 mt-1 mb-3">
+                                        <div class="xl:col-span-6 col-span-12">
+                                            <div class="form-group ">
+                                                <label for="cusName" class="form-label">Name
+                                                    <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="cusName"
+                                                    placeholder="Enter your name">
+                                            </div>
+                                        </div>
+                                        <div class="xl:col-span-6 col-span-12">
+                                            <div class="form-group">
+                                                <label for="cusEmail" class="form-label">Email
+                                                    <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="cusEmail"
+                                                    placeholder="Enter your email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cusMessage" class="form-label">Message <span
+                                                class="text-danger">*</span></label>
+                                        <textarea rows="4" class="form-control" id="cusMessage"
+                                            placeholder="Type your message here..."></textarea>
+                                    </div>
+                                    <div class="form-group mb-2 pt-1">
+                                        <button class="ti-btn ti-btn-primary-full">Send Message</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-10 -->
+
+            <!-- Start:: Section-11 -->
+            <section class="section landing-footer  text-white text-[0.813rem] opacity-[0.87]">
+                <div class="container">
+                    <div class="grid grid-cols-12 gap-x-6">
+                        <div class="xl:col-span-4 lg:col-span-4 col-span-12">
+                            <div class="px-6">
+                                <p class="font-semibold mb-4"><a href="{{ url('/') }}"><img
+                                            src="{{ asset('backend/assets/images/brand-logos/desktop-dark.png') }}" alt=""></a></p>
+                                <p class="mb-2 opacity-[0.6] font-normal">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit et magnam,
+                                    fuga est mollitia eius, quo illum illo inventore optio aut quas omnis rem. Dolores
+                                    accusantium aspernatur minus ea incidunt.
+                                </p>
+                                <p class="mb-0 opacity-[0.6] font-normal">Lorem ipsum dolor sit amet consectetur,
+                                    adipisicing elit. Autem ea esse ad</p>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-2 lg:col-span-2 col-span-12">
+                            <div class="px-6">
+                                <h6 class="font-semibold text-[1rem] mb-4">PAGES</h6>
+                                <ul class="list-unstyled opacity-[0.6] font-normal landing-footer-list">
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Email</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Timeline</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Projects</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Contacts</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Portfolio</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-2 lg:col-span-2 col-span-12">
+                            <div class="px-6">
+                                <h6 class="font-semibold text-[1rem] mb-2">INFO</h6>
+                                <ul class="list-unstyled opacity-[0.6] font-normal landing-footer-list">
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Our Team</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Contact US</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white">Terms & Conditions</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-4 lg:col-span-4 col-span-12">
+                            <div class="px-6">
+                                <h6 class="font-semibold text-[1rem] mb-2">CONTACT</h6>
+                                <ul class="list-unstyled font-normal landing-footer-list">
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white opacity-[0.6]"><i
+                                                class="ri-home-4-line me-1 align-middle"></i> New York, NY 10012, US</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white opacity-[0.6]"><i
+                                                class="ri-mail-line me-1 align-middle"></i> info@fmail.com</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white opacity-[0.6]"><i
+                                                class="ri-phone-line me-1 align-middle"></i> +(555)-1920 1831</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="text-white opacity-[0.6]"><i
+                                                class="ri-printer-line me-1 align-middle"></i> +(123) 1293 123</a>
+                                    </li>
+                                    <li class="mt-4">
+                                        <p class="mb-2 font-semibold opacity-[0.8] text-[1rem]">FOLLOW US ON :</p>
+                                        <div class="mb-0">
+                                            <div class="btn-list">
+                                                <button
+                                                    class="ti-btn ti-btn-sm ti-btn-icon ti-btn-primary me-[0.365rem]">
+                                                    <i class="ri-facebook-line font-bold"></i>
+                                                </button>
+                                                <button
+                                                    class="ti-btn ti-btn-sm ti-btn-icon ti-btn-secondary me-[0.365rem]">
+                                                    <i class="ri-twitter-x-line"></i>
+                                                </button>
+                                                <button
+                                                    class="ti-btn ti-btn-sm ti-btn-icon ti-btn-warning me-[0.365rem]">
+                                                    <i class="ri-instagram-line font-bold"></i>
+                                                </button>
+                                                <button
+                                                    class="ti-btn ti-btn-sm ti-btn-icon ti-btn-success me-[0.365rem]">
+                                                    <i class="ri-github-line font-bold"></i>
+                                                </button>
+                                                <button class="ti-btn ti-btn-sm ti-btn-icon ti-btn-danger">
+                                                    <i class="ri-youtube-line font-bold"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-11 -->
+            <div class="text-center landing-main-footer py-4 opacity-[0.87]">
+                <span class="text-[#8c9097] text-[0.9375rem]"> Copyright © <span id="year"></span> <a
+                        href="javascript:void(0);" class="!text-primary font-semibold"><u>valex</u></a>.
+                    Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0);"
+                        class="!text-primary font-semibold"><u>
+                            Spruko</u>
+                    </a> All
+                    rights
+                    reserved
+                </span>
+            </div>
+        </div>
+        <!-- End::main-content -->
+
+    </div>
+
+    <!-- Back To Top -->
+    <div class="scrollToTop">
+        <span class="arrow"><i class="ri-arrow-up-s-fill  text-[1.25rem]"></i></span>
+    </div>
+
+    <div id="responsive-overlay"></div>
+    <!-- popperjs -->
+    <script src="{{ asset('backend/assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
+
+    <!-- Color Picker JS -->
+    <script src="{{ asset('backend/assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
+
+    <!-- Swiper JS -->
+    <script src="{{ asset('backend/assets/libs/swiper/swiper-bundle.min.js') }}"></script>
+
+    <!-- sidebar JS -->
+    <script src="{{ asset('backend/assets/js/defaultmenu.js') }}"></script>
+
+    <!-- Internal Landing JS -->
+    <script src="{{ asset('backend/assets/js/landing.js') }}"></script>
+
+    <!-- Switch JS -->
+    <script src="{{ asset('backend/assets/js/switch.js') }}"></script>
+
+    <!-- Preline JS -->
+    <script src="{{ asset('backend/assets/libs/preline/preline.js') }}"></script>
+
+    <!-- Simplebar JS -->
+    <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
+
+    <script src="{{ asset('backend/assets/js/sticky.js') }}"></script>
+
+
+
+</body>
+
 </html>

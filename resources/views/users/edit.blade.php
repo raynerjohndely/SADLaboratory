@@ -57,7 +57,14 @@
                                 </div>
                                 <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
                                     <label for="birthdate" class="form-label">Birthdate</label>
-                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ old('birthdate') }}">
+                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ old('birthdate', $user->birthdate ? $user->birthdate->format('Y-m-d') : '') }}">
+                                </div>
+                                <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
+                                    <label for="status" class="form-label">Status</label>
+                                    <select class="form-control" id="status" name="status" required>
+                                        <option value="1" {{ old('status', $user->status) ? 'selected' : '' }}>Active</option>
+                                        <option value="0" {{ old('status', $user->status) ? '' : 'selected' }}>Inactive</option>
+                                    </select>
                                 </div>
                                 <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
                                     <label for="photo" class="form-label">Upload Photo</label>

@@ -62,11 +62,11 @@
                                                 <span class="badge badge-danger/10 text-danger">Inactive</span>
                                             @endif
                                         </td>
-                                        <td class="border border-gray-300 px-4 py-2">{{ $user->created_at -> format('Y-m-d') }}</td>
+                                        <td class="border border-gray-300 px-4 py-2">{{ $user->created_at -> format('d M Y h:i A') }}</td>
                                         <td>
                                             <div class="hstack gap-2 flex-wrap">
-                                                <a aria-label="anchor" href="{{ route('users.edit', $user->id) }}"
-                                                    class="text-info text-[.875rem] leading-none"><i
+                                                <a href="{{ route('users.edit', $user->id) }}"
+                                                    class="text-info text-[.875rem] leading-none border-0 bg-transparent"><i
                                                         class="ri-edit-line"></i></a>
                                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this user?');">
                                                     @csrf

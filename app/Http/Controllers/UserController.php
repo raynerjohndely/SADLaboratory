@@ -17,9 +17,7 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        $users = User::where('status', true)
-        ->orderBy('created_at', 'desc')
-        ->get();
+        $users = User::orderBy('created_at', 'desc')->get();
 
         return view('users.index', compact('users'));
     }
@@ -44,6 +42,7 @@ class UserController extends Controller
             'name' => $data['fullname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'birthdate' => $data['birthdate'] ?? null,
         ];
 
         // Handle photo upload if needed (though not in schema yet, we can store it or just skip)
@@ -74,6 +73,8 @@ class UserController extends Controller
         $userData = [
             'name' => $data['fullname'],
             'email' => $data['email'],
+            'birthdate' => $data['birthdate'] ?? null,
+            'status' => $data['status'],
         ];
 
         if (!empty($data['password'])) {

@@ -36,6 +36,7 @@ class UpdateUserRequest extends FormRequest
             'password' => ['nullable', Rules\Password::defaults()],
             'birthdate' => ['nullable', 'date'],
             'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+            'status' => ['required', 'boolean'],
         ];
     }
 }
