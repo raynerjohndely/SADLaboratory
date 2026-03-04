@@ -35,6 +35,10 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request): RedirectResponse
     {
+        $request->validate([
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         $data = $request->validated();
         
         // Map fullname to name
@@ -45,10 +49,12 @@ class UserController extends Controller
             'birthdate' => $data['birthdate'] ?? null,
         ];
 
-        // Handle photo upload if needed (though not in schema yet, we can store it or just skip)
-        // For now, I'll skip persisting extra fields to DB to avoid SQL errors, 
-        // but if the user wants them, we should add a migration.
-        // I will assume for now we only save what is in the model.
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/users'), $filename);
+            $userData['photo'] = 'images/users/' . $filename;
+        }
 
         User::create($userData);
 
@@ -68,6 +74,10 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
+        $request->validate([
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         $data = $request->validated();
 
         $userData = [
@@ -79,6 +89,18 @@ class UserController extends Controller
 
         if (!empty($data['password'])) {
             $userData['password'] = Hash::make($data['password']);
+        }
+
+        if ($request->hasFile('photo')) {
+            // Delete old photo if it exists
+            if ($user->photo && file_exists(public_path($user->photo))) {
+                @unlink(public_path($user->photo));
+            }
+            
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/users'), $filename);
+            $userData['photo'] = 'images/users/' . $filename;
         }
 
         $user->update($userData);

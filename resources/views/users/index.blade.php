@@ -51,7 +51,7 @@
                                     <tr class="hover:bg-gray-50">
                                         <td class="border border-gray-300 px-4 py-2">
                                             <span class="avatar avatar-xs me-2 online avatar-rounded">
-                                                <img src="{{ asset('backend/assets/images/faces/13.jpg') }}" alt="img">
+                                                <img src="{{ $user->photo ? asset($user->photo) : asset('backend/assets/images/faces/13.jpg') }}" alt="img" class="object-cover h-full w-full">
                                             </span> {{ $user->name }}
                                         </td>
                                         <td class="border border-gray-300 px-4 py-2">{{ $user->email }}</td>
