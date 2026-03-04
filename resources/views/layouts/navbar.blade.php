@@ -489,12 +489,17 @@
             <!-- End::header-element -->
 
             <!-- Header Profile -->
+            @php
+                $headerProfilePhoto = Auth::user()->photo
+                    ? asset('storage/' . Auth::user()->photo)
+                    : asset('backend/assets/images/faces/6.jpg');
+            @endphp
             <div
                 class="header-element md:!px-[0.5rem] px-2 hs-dropdown profile-dropdown !items-center ti-dropdown [--placement:bottom-left]">
 
                 <button id="dropdown-profile" type="button"
                     class="hs-dropdown-toggle ti-dropdown-toggle !gap-2 !p-0 flex-shrink-0 me-0 !rounded-full !shadow-none text-xs align-middle !border-0 !shadow-transparent ">
-                    <img class="inline-block rounded-full " src="{{ asset('backend/assets/images/faces/6.jpg') }}"
+                    <img class="inline-block rounded-full " src="{{ $headerProfilePhoto }}"
                         width="37" height="37" alt="Image Description">
                 </button>
                 <div class="main-header-dropdown !-mt-2 !p-0 hs-dropdown-menu ti-dropdown-menu  bg-white  !border-0 border-defaultborder hidden !m-0"
@@ -504,6 +509,10 @@
                         aria-labelledby="mainHeaderProfile">
                         <li>
                             <div class="main-header-profile bg-primary menu-header-content text-white">
+                                <div class="me-3">
+                                    <img src="{{ $headerProfilePhoto }}" alt="{{ Auth::user()->name }}"
+                                        class="h-[2.5rem] w-[2.5rem] rounded-full object-cover border border-white/30">
+                                </div>
                                 <div class="my-auto">
                                     <h6 class="mb-0 leading-none text-white">{{ Auth::user()->name }}</h6><span
                                         class="text-[.6875rem] opacity-[0.7] leading-none">{{ Auth::user()->email }}</span>

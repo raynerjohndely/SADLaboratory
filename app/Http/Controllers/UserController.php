@@ -38,18 +38,17 @@ class UserController extends Controller
     public function store(StoreUserRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        
-        // Map fullname to name
+
         $userData = [
             'name' => $data['fullname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'birthdate' => $data['birthdate'] ?? null,
         ];
 
-        // Handle photo upload if needed (though not in schema yet, we can store it or just skip)
-        // For now, I'll skip persisting extra fields to DB to avoid SQL errors, 
-        // but if the user wants them, we should add a migration.
-        // I will assume for now we only save what is in the model.
+        if ($request->hasFile('photo')) {
+            $userData['photo'] = $request->file('photo')->store('users', 'public');
+        }
 
         User::create($userData);
 
@@ -74,10 +73,19 @@ class UserController extends Controller
         $userData = [
             'name' => $data['fullname'],
             'email' => $data['email'],
+            'birthdate' => $data['birthdate'] ?? null,
         ];
 
         if (!empty($data['password'])) {
             $userData['password'] = Hash::make($data['password']);
+        }
+
+        if ($request->hasFile('photo')) {
+            if (!empty($user->photo) && Storage::disk('public')->exists($user->photo)) {
+                Storage::disk('public')->delete($user->photo);
+            }
+
+            $userData['photo'] = $request->file('photo')->store('users', 'public');
         }
 
         $user->update($userData);
@@ -90,6 +98,10 @@ class UserController extends Controller
      */
     public function destroy(User $user): RedirectResponse
     {
+        if (!empty($user->photo) && Storage::disk('public')->exists($user->photo)) {
+            Storage::disk('public')->delete($user->photo);
+        }
+
         $user->delete();
 
         return redirect()->route('users.index')->with('success', 'User deleted successfully.');

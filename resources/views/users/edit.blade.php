@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
                                     <label for="birthdate" class="form-label">Birthdate</label>
-                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ old('birthdate') }}">
+                                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ old('birthdate', $user->birthdate?->format('Y-m-d')) }}">
                                 </div>
                                 <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
                                     <label for="photo" class="form-label">Upload Photo</label>
@@ -67,6 +67,15 @@
                                                file:bg-gray-200 file:me-4
                                                file:py-3 file:px-4
                                                dark:file:bg-black/20 dark:file:text-white/50">
+                                    <small class="text-muted">Accepted: jpg, jpeg, png, gif (max 2MB).</small>
+
+                                    @if ($user->photo)
+                                        <div class="mt-3">
+                                            <p class="text-xs text-muted mb-2">Current picture:</p>
+                                            <img src="{{ asset('storage/' . $user->photo) }}" alt="{{ $user->name }}"
+                                                class="h-16 w-16 rounded-full object-cover border border-gray-200">
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
