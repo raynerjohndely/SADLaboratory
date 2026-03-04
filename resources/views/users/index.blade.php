@@ -62,7 +62,7 @@
                                                 <span class="badge badge-danger/10 text-danger">Inactive</span>
                                             @endif
                                         </td>
-                                        <td class="border border-gray-300 px-4 py-2">{{ $user->created_at -> format('Y-m-d') }}</td>
+                                        <td class="border border-gray-300 px-4 py-2">{{ $user->created_at -> format('d M Y h:i A') }}</td>
                                         <td>
                                             <div class="hstack gap-2 flex-wrap">
                                                 <a aria-label="anchor" href="{{ route('users.edit', $user->id) }}"
