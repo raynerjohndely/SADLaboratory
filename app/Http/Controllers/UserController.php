@@ -17,9 +17,7 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        $users = User::where('status', true)
-        ->orderBy('created_at', 'desc')
-        ->get();
+        $users = User::orderBy('created_at', 'desc')->get();
 
         return view('users.index', compact('users'));
     }
@@ -37,8 +35,13 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        $data = $request->validated();
+        $request->validate([
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
+        $data = $request->validated();
+        
+        // Map fullname to name
         $userData = [
             'name' => $data['fullname'],
             'email' => $data['email'],
@@ -47,7 +50,10 @@ class UserController extends Controller
         ];
 
         if ($request->hasFile('photo')) {
-            $userData['photo'] = $request->file('photo')->store('users', 'public');
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/users'), $filename);
+            $userData['photo'] = 'images/users/' . $filename;
         }
 
         User::create($userData);
@@ -68,12 +74,17 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
+        $request->validate([
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         $data = $request->validated();
 
         $userData = [
             'name' => $data['fullname'],
             'email' => $data['email'],
             'birthdate' => $data['birthdate'] ?? null,
+            'status' => $data['status'],
         ];
 
         if (!empty($data['password'])) {
@@ -81,11 +92,15 @@ class UserController extends Controller
         }
 
         if ($request->hasFile('photo')) {
-            if (!empty($user->photo) && Storage::disk('public')->exists($user->photo)) {
-                Storage::disk('public')->delete($user->photo);
+            // Delete old photo if it exists
+            if ($user->photo && file_exists(public_path($user->photo))) {
+                @unlink(public_path($user->photo));
             }
-
-            $userData['photo'] = $request->file('photo')->store('users', 'public');
+            
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/users'), $filename);
+            $userData['photo'] = 'images/users/' . $filename;
         }
 
         $user->update($userData);
@@ -98,10 +113,6 @@ class UserController extends Controller
      */
     public function destroy(User $user): RedirectResponse
     {
-        if (!empty($user->photo) && Storage::disk('public')->exists($user->photo)) {
-            Storage::disk('public')->delete($user->photo);
-        }
-
         $user->delete();
 
         return redirect()->route('users.index')->with('success', 'User deleted successfully.');

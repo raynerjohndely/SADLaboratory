@@ -67,7 +67,7 @@
                                                file:bg-gray-200 file:me-4
                                                file:py-3 file:px-4
                                                dark:file:bg-black/20 dark:file:text-white/50">
-                                    <small class="text-muted">Accepted: jpg, jpeg, png, gif (max 2MB).</small>
+                                    <span><p>Maximum f</p></span>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TODA Management - TricyKab Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5862ca",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#14151e",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 antialiased min-h-screen">
+<!-- Sidebar Overlay (Hidden by default on mobile) -->
+<div class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden" id="sidebar-overlay"></div>
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-primary/10 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+<div class="flex items-center gap-3 px-6 py-6 border-b border-primary/10">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">electric_rickshaw</span>
+</div>
+<span class="text-xl font-bold text-primary">TricyKab</span>
+</div>
+<nav class="p-4 space-y-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-white rounded-lg shadow-lg shadow-primary/20" href="#">
+<span class="material-icons">groups</span>
+<span class="font-medium">TODA Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons">person</span>
+<span class="font-medium">Operators</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons">badge</span>
+<span class="font-medium">Drivers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 lg:ml-64 relative">
+<!-- Header -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-primary/10 flex items-center justify-between px-4 lg:px-8 sticky top-0 z-30">
+<div class="flex items-center gap-4">
+<button class="lg:hidden p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-icons">menu</span>
+</button>
+<div class="hidden sm:block">
+<h2 class="text-sm font-medium text-slate-500">Dashboard / <span class="text-primary">TODA Management</span></h2>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-slate-500 hover:bg-primary/5 rounded-lg">
+<span class="material-icons">notifications</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700 mx-1"></div>
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+<img alt="Admin Avatar" class="w-full h-full object-cover" data-alt="Portrait of the system administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJbZIMW5Dky117GNAVmTna6uX8EiQlndBhr1WfAyoL8SiMOp53od1x8axl_ClGfZ2cGwNlOaVw_LlVdu7dESV41jAe32IyWqxu30g2u4sJ1XZiE9X6SVKT1iQnInTbDnt9kVZDzXlYlUcvIugwspouxMDftbRQ13vDuJ3hfMPndmCcHiQxhT4MepQQC9HLusvQbvs8SRphVMtufUZunTS_XCZbFAP5iatFpvcYddW1-gfeo-qjm7vYlH15zxshnQJcQr5K_KS3wLg"/>
+</div>
+<div class="hidden md:block text-left">
+<p class="text-sm font-semibold leading-tight">Admin User</p>
+<p class="text-xs text-slate-400">Super Admin</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-4 lg:p-8 space-y-6 overflow-y-auto">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h1 class="text-2xl font-bold text-slate-800 dark:text-white">TODA Management</h1>
+<button class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg shadow-lg shadow-primary/25 transition-all font-medium">
+<span class="material-icons text-xl">add</span>
+                        Add New TODA
+                    </button>
+</div>
+<!-- Filters and Search -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/5 shadow-sm space-y-4">
+<div class="flex flex-col md:flex-row gap-3">
+<div class="relative flex-1">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-background-light dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary text-sm" placeholder="Search TODA name, president or location..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-800 border border-primary/10 rounded-lg hover:border-primary text-sm font-medium transition-colors">
+<span class="material-icons text-lg">filter_list</span>
+                                Filter
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-800 border border-primary/10 rounded-lg hover:border-primary text-sm font-medium transition-colors">
+<span class="material-icons text-lg">file_download</span>
+                                Export
+                            </button>
+</div>
+</div>
+</div>
+<!-- Table Content (Mobile-Friendly Card List & Desktop Table) -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-primary/5 border-b border-primary/10">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">ID</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">TODA Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">President</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Base Location</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-primary/[0.02] transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-500">#TD-001</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">P</div>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Poblacion TODA</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Juan Dela Cruz</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Town Plaza, Center</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">Active</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-icons text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors">
+<span class="material-icons text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/[0.02] transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-500">#TD-002</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">B</div>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Bagong Pag-asa TODA</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Ricardo Dalisay</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">North Terminal</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">Active</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-icons text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors">
+<span class="material-icons text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/[0.02] transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-500">#TD-003</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">S</div>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Santa Maria TODA</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Maria Clara</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Church Road</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">Inactive</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-icons text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors">
+<span class="material-icons text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-primary/[0.01] border-t border-primary/5 flex items-center justify-between">
+<p class="text-sm text-slate-500">Showing 3 of 15 entries</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary/10 text-slate-500 hover:bg-primary/5">
+<span class="material-icons text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-white font-medium text-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary/10 text-slate-500 hover:bg-primary/5 text-sm font-medium transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary/10 text-slate-500 hover:bg-primary/5">
+<span class="material-icons text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Add New TODA Modal (Visible State) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center px-4">
+<!-- Modal Backdrop -->
+<div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+<!-- Modal Container -->
+<div class="relative w-full max-w-md bg-white dark:bg-slate-900 rounded-xl shadow-2xl shadow-black/30 overflow-hidden transform transition-all">
+<!-- Modal Header -->
+<div class="px-6 py-4 border-b border-primary/10 flex items-center justify-between bg-primary/[0.02]">
+<h3 class="text-lg font-bold text-slate-800 dark:text-white">Add New TODA</h3>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-400">
+<span class="material-icons">close</span>
+</button>
+</div>
+<!-- Modal Form Body -->
+<div class="p-6 space-y-5">
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-600 dark:text-slate-300">TODA Name</label>
+<input class="w-full px-4 py-2.5 bg-background-light dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:ring-0 rounded-lg transition-all text-sm outline-none" placeholder="e.g. Poblacion TODA" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-600 dark:text-slate-300">President Name</label>
+<input class="w-full px-4 py-2.5 bg-background-light dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:ring-0 rounded-lg transition-all text-sm outline-none" placeholder="Enter president's full name" type="text"/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-600 dark:text-slate-300">Contact Number</label>
+<input class="w-full px-4 py-2.5 bg-background-light dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:ring-0 rounded-lg transition-all text-sm outline-none" placeholder="+63 9XX XXX XXXX" type="tel"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-600 dark:text-slate-300">Status</label>
+<select class="w-full px-4 py-2.5 bg-background-light dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:ring-0 rounded-lg transition-all text-sm outline-none appearance-none">
+<option value="active">Active</option>
+<option value="inactive">Inactive</option>
+</select>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-600 dark:text-slate-300">Base Location</label>
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">location_on</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-background-light dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:ring-0 rounded-lg transition-all text-sm outline-none" placeholder="Enter landmark or terminal location" type="text"/>
+</div>
+</div>
+<div class="h-[100px] w-full rounded-lg bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
+<img alt="Map Preview" class="w-full h-full object-cover opacity-50 grayscale" data-alt="Simplified map view of a city center" data-location="Manila" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFvbOOgi8KnH65-rJ7DvaeyzPMw6X95EYQ8x79o9kzIQcGRahpwPqGAq92gB3fznIRHlG0xGseEVq4mb_mxLO30JvoT-YJX3WcMWd8J5iZTKyi5b8YTF7bVy3eVOuYna0Pu6SmtkI6drmlfYZCYVh78up5mqIRzgysrgaL8EDtpALLx9awNvofOj4o4H6iRekbjCcBYjiZlLkxX5ixc5asQYz_4n_4C5Dw-wtmLwPQ1KgCuGOglCmuTIVcyngVwAwdIZyUskleR1Y"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/90 dark:bg-slate-900/90 px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2">
+<span class="material-icons text-primary text-sm">map</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">Preview Map Location</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 bg-primary/[0.02] border-t border-primary/10 flex items-center gap-3 justify-end">
+<button class="px-6 py-2.5 rounded-lg border border-primary/20 text-slate-600 dark:text-slate-400 font-semibold text-sm hover:bg-primary/5 transition-colors">
+                    Cancel
+                </button>
+<button class="px-6 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white font-semibold text-sm shadow-lg shadow-primary/20 transition-all">
+                    Save TODA
+                </button>
+</div>
+</div>
+</div>
+</body></html>
