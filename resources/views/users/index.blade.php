@@ -51,7 +51,7 @@
                                     <tr class="hover:bg-gray-50">
                                         <td class="border border-gray-300 px-4 py-2">
                                             <span class="avatar avatar-xs me-2 online avatar-rounded">
-                                                <img src="{{ $user->photo ? asset($user->photo) : asset('backend/assets/images/faces/13.jpg') }}" alt="img" class="object-cover h-full w-full">
+                                                <img src="{{ $user->photo ? asset('storage/' . $user->photo) : asset('backend/assets/images/faces/13.jpg') }}" alt="img" class="object-cover h-full w-full">
                                             </span> {{ $user->name }}
                                         </td>
                                         <td class="border border-gray-300 px-4 py-2">{{ $user->email }}</td>
@@ -68,10 +68,10 @@
                                                 <a href="{{ route('users.edit', $user->id) }}"
                                                     class="text-info text-[.875rem] leading-none border-0 bg-transparent"><i
                                                         class="ri-edit-line"></i></a>
-                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="inline-block form-delete-user">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" aria-label="anchor" class="text-danger text-[.875rem] leading-none border-0 bg-transparent"><i
+                                                    <button type="button" aria-label="anchor" class="text-danger text-[.875rem] leading-none border-0 bg-transparent btn-delete-user"><i
                                                             class="ri-delete-bin-5-line"></i></button>
                                                 </form>
                                             </div>
@@ -89,4 +89,32 @@
             </div>
         </div>
     </div>
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.btn-delete-user');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const form = this.closest('form');
+                    
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    })
+                });
+            });
+        });
+    </script>
 @endsection

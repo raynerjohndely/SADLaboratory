@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -27,7 +28,13 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
-        $user->fill($request->validated());
+        
+        $validated = $request->validated();
+        if (isset($validated['photo'])) {
+            unset($validated['photo']);
+        }
+        
+        $user->fill($validated);
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
@@ -35,14 +42,12 @@ class ProfileController extends Controller
 
         if ($request->hasFile('photo')) {
             // Delete old photo if it exists
-            if ($user->photo && file_exists(public_path($user->photo))) {
-                @unlink(public_path($user->photo));
+            if ($user->photo && Storage::disk('public')->exists($user->photo)) {
+                Storage::disk('public')->delete($user->photo);
             }
             
-            $file = $request->file('photo');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('images/users'), $filename);
-            $user->photo = 'images/users/' . $filename;
+            $path = $request->file('photo')->store('images/users', 'public');
+            $user->photo = $path;
         }
 
         $user->save();
@@ -60,6 +65,10 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+
+        if ($user->photo && Storage::disk('public')->exists($user->photo)) {
+            Storage::disk('public')->delete($user->photo);
+        }
 
         Auth::logout();
 

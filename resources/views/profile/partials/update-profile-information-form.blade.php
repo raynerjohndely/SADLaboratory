@@ -50,7 +50,7 @@
         <div>
             <x-input-label for="photo" :value="__('Photo')" />
             @if ($user->photo)
-                <img src="{{ asset($user->photo) }}" alt="Profile Photo" class="w-20 h-20 rounded-full mb-2 object-cover">
+                <img src="{{ asset('storage/' . $user->photo) }}" alt="Profile Photo" class="w-20 h-20 rounded-full mb-2 object-cover">
             @endif
             <x-text-input id="photo" name="photo" type="file" class="mt-1 block w-full text-sm border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" accept="image/*" />
             <x-input-error class="mt-2" :messages="$errors->get('photo')" />

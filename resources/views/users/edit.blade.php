@@ -75,6 +75,10 @@
                                                file:py-3 file:px-4
                                                dark:file:bg-black/20 dark:file:text-white/50">
                                 </div>
+                                <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
+                                    <label for="photo" class="form-label">Current Photo</label>
+                                    <img src="{{ $user->photo ? asset('storage/' . $user->photo) : asset('backend/assets/images/faces/13.jpg') }}" alt="Current Photo" class="h-20 w-20 rounded-full object-cover">
+                                </div>
                             </div>
                         </div>
                         <div class="box-footer border-t-0">

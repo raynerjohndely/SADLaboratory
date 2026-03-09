@@ -50,10 +50,8 @@ class UserController extends Controller
         ];
 
         if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('images/users'), $filename);
-            $userData['photo'] = 'images/users/' . $filename;
+            $path = $request->file('photo')->store('images/users', 'public');
+            $userData['photo'] = $path;
         }
 
         User::create($userData);
@@ -93,14 +91,12 @@ class UserController extends Controller
 
         if ($request->hasFile('photo')) {
             // Delete old photo if it exists
-            if ($user->photo && file_exists(public_path($user->photo))) {
-                @unlink(public_path($user->photo));
+            if ($user->photo && Storage::disk('public')->exists($user->photo)) {
+                Storage::disk('public')->delete($user->photo);
             }
             
-            $file = $request->file('photo');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('images/users'), $filename);
-            $userData['photo'] = 'images/users/' . $filename;
+            $path = $request->file('photo')->store('images/users', 'public');
+            $userData['photo'] = $path;
         }
 
         $user->update($userData);
@@ -113,6 +109,10 @@ class UserController extends Controller
      */
     public function destroy(User $user): RedirectResponse
     {
+        if ($user->photo && Storage::disk('public')->exists($user->photo)) {
+            Storage::disk('public')->delete($user->photo);
+        }
+        
         $user->delete();
 
         return redirect()->route('users.index')->with('success', 'User deleted successfully.');
