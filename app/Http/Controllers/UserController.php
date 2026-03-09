@@ -35,10 +35,6 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        $request->validate([
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
         $data = $request->validated();
         
         // Map fullname to name
@@ -50,8 +46,10 @@ class UserController extends Controller
         ];
 
         if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('images/users', 'public');
-            $userData['photo'] = $path;
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(storage_path('app/public/images/users'), $filename);
+            $userData['photo'] = 'images/users/' . $filename;
         }
 
         User::create($userData);
@@ -72,10 +70,6 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        $request->validate([
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
         $data = $request->validated();
 
         $userData = [
@@ -95,8 +89,10 @@ class UserController extends Controller
                 Storage::disk('public')->delete($user->photo);
             }
             
-            $path = $request->file('photo')->store('images/users', 'public');
-            $userData['photo'] = $path;
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(storage_path('app/public/images/users'), $filename);
+            $userData['photo'] = 'images/users/' . $filename;
         }
 
         $user->update($userData);
