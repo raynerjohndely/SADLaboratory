@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\View\View;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\View\View;
 
-class UserController extends Controller
+class EnrollmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +18,7 @@ class UserController extends Controller
     {
         $users = User::orderBy('created_at', 'desc')->get();
 
-        return view('users.index', compact('users'));
+        return view('enrollments.index', compact('users'));
     }
 
     /**
@@ -27,7 +26,7 @@ class UserController extends Controller
      */
     public function create(): View
     {
-        return view('users.create');
+        return view('enrollments.create');
     }
 
     /**
@@ -40,8 +39,7 @@ class UserController extends Controller
         ]);
 
         $data = $request->validated();
-        
-        // Map fullname to name
+
         $userData = [
             'name' => $data['fullname'],
             'email' => $data['email'],
@@ -58,21 +56,23 @@ class UserController extends Controller
 
         User::create($userData);
 
-        return redirect()->route('users.index')->with('success', 'User created successfully.');
+        return redirect()->route('enrollments.index')->with('success', 'Enrollment created successfully.');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user): View
+    public function edit(User $enrollment): View
     {
-        return view('users.edit', compact('user'));
+        $user = $enrollment;
+
+        return view('enrollments.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $user): RedirectResponse
+    public function update(UpdateUserRequest $request, User $enrollment): RedirectResponse
     {
         $request->validate([
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -92,33 +92,32 @@ class UserController extends Controller
         }
 
         if ($request->hasFile('photo')) {
-            // Delete old photo if it exists
-            if ($user->photo && file_exists(public_path($user->photo))) {
-                @unlink(public_path($user->photo));
+            if ($enrollment->photo && file_exists(public_path($enrollment->photo))) {
+                @unlink(public_path($enrollment->photo));
             }
-            
+
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('images/users'), $filename);
             $userData['photo'] = 'images/users/' . $filename;
         }
 
-        $user->update($userData);
+        $enrollment->update($userData);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        return redirect()->route('enrollments.index')->with('success', 'Enrollment updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user): RedirectResponse
+    public function destroy(User $enrollment): RedirectResponse
     {
-        if ($user->photo && file_exists(public_path($user->photo))) {
-            @unlink(public_path($user->photo));
+        if ($enrollment->photo && file_exists(public_path($enrollment->photo))) {
+            @unlink(public_path($enrollment->photo));
         }
 
-        $user->delete();
+        $enrollment->delete();
 
-        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        return redirect()->route('enrollments.index')->with('success', 'Enrollment deleted successfully.');
     }
 }

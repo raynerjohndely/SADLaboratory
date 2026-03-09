@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::middleware('auth')->group(function () {
 
     //route for user management
     Route::resource('users', \App\Http\Controllers\UserController::class);
+    Route::resource('enrollments', EnrollmentController::class);
 });
 
 require __DIR__.'/auth.php';
