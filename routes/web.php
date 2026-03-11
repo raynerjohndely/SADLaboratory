@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');
@@ -18,6 +19,7 @@ Route::middleware('auth')->group(function () {
     //route for user management
     Route::resource('users', \App\Http\Controllers\UserController::class);
     Route::resource('enrollments', EnrollmentController::class);
+    Route::resource('subject', SubjectController::class)->except('show');
 });
 
 require __DIR__.'/auth.php';

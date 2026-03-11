@@ -63,6 +63,12 @@
                             <span class="side-menu__label">Enrollment</span>
                         </a>
                     </li>
+                    <li class="slide">
+                        <a href="{{ route('subject.index') }}" class="side-menu__item">
+                            <svg class="side-menu__icon" viewBox="0 0 24 24"><path d="M4 4.75A2.75 2.75 0 0 1 6.75 2h10.5A2.75 2.75 0 0 1 20 4.75v14.5A2.75 2.75 0 0 1 17.25 22H6.75A2.75 2.75 0 0 1 4 19.25V4.75Zm2 0a.75.75 0 0 0 .75.75h10.5A.75.75 0 0 0 18 4.75v-.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v.5Zm0 3v11.5c0 .414.336.75.75.75h10.5a.75.75 0 0 0 .75-.75V7.75a2.73 2.73 0 0 1-.75.104H6.75A2.73 2.73 0 0 1 6 7.75Zm3 3a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2h-5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2h-5a1 1 0 0 1-1-1Z"/></svg>
+                            <span class="side-menu__label">Subject Management</span>
+                        </a>
+                    </li>
                     <!-- End::slide --> 
 
                 </ul>
